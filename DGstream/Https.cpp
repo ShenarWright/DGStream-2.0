@@ -14,10 +14,28 @@ namespace Net
         auto res = cli.Get("/search");
         if (res.error() == httplib::Error::Connection)
         {
+            std::cout << httplib::to_string(res.error()) << '\n';
             return false;
-            //std::cout << httplib::to_string(res.error()) << '\n';
         }
         return true;
+    }
+
+    void Https::sendrequestcb(std::string base, std::string path, std::function<void(Json::Value val)> cb)
+    {
+        std::cout << base << ',' << path << '\n';
+        httplib::Client cli(base);
+        auto res = cli.Get(path);
+        if (res.error() != httplib::Error::Success)
+        {
+            std::cout << "Failed\n";
+            std::cout << httplib::to_string(res.error());
+            return;
+        }
+        Json::Value jv;
+        Json::Reader r;
+        r.parse(res->body,jv);
+        std::cout << jv << '\n';
+        cb(jv);
     }
 
     /*size_t Https::cb(void* data, size_t size, size_t nmemb, void* userp)

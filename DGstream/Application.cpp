@@ -9,7 +9,12 @@ void Application::render()
 {
 	try
 	{
-		window.clear();
+		//sf::Sprite spr;
+		//spr.setScale(.1f,.1f);
+		//spr.setTexture(tex);
+		//spr.setPosition({ 700,500 });
+		window.clear(sf::Color::White);
+		//window.draw(spr);
 		mutex.lock();
 		gui.draw();
 		mutex.unlock();
@@ -34,7 +39,7 @@ void Application::handleEvents()
 
 void Application::initWindow()
 {
-	window.create(sf::VideoMode(sf::VideoMode::getDesktopMode()), "Hello");
+	window.create(sf::VideoMode(sf::VideoMode::getDesktopMode()), "DGStream");
 	window.setFramerateLimit(30);
 	window.setPosition(sf::Vector2i(0, 0));
 }
@@ -92,11 +97,15 @@ void Application::loadMainMenu(std::vector<std::string> paths)
 			l->setSize(200, l->getSize().y);
 			p->setSize(200, 200);
 			p->setPosition(j * (p->getSize().x + 30), 10);
-			p->onClick([](tgui::ScrollablePanel::Ptr panel)
+			p->onClick([&](int count)
 				{
-					panel->removeAllWidgets();
-				}
-			, row);
+					Net::Https::sendrequestcb(consumet, gogo info "spy-x-family", [&](Json::Value v)
+						{
+							displayAnimeInfo(v, count);
+						}
+							);
+				},j
+			);
 			l->setPosition(j * (p->getSize().x + 30), p->getSize().x + 10);
 			row->add(p);
 			row->add(l);
@@ -146,6 +155,18 @@ void Application::displaySearch(std::vector<std::string> paths)
 	mutex.unlock();
 }
 
+void Application::displayAnimeInfo(Json::Value val,int count)
+{
+	animeInfo = tgui::Group::create();
+	animeInfo->loadWidgetsFromFile("animeinfo.txt");
+	mainMenu->setVisible(false);
+	gui.add(animeInfo);
+	auto pic = animeInfo->get<tgui::Picture>("Animepic");
+	auto label = animeInfo->get<tgui::Label>("Label1");
+	label->setText(val["description"].asString());
+	pic->getRenderer()->setTexture(*textures[count].get());
+}
+
 Application::Application()
 {
 	Net::Downloader::Init();
@@ -156,8 +177,11 @@ Application::Application()
 	//Net::APD apd("https://api.consumet.org/anime/gogoanime/top-airing");
 	//apd.work();
 	if (Net::Https::hasInternet())
-		Net::Downloader::addard("https://api.consumet.org/anime/gogoanime/top-airing", [&](std::vector<std::string> paths) {loadMainMenu(paths); });
+		Net::Downloader::addard(gogourl topairing, [&](std::vector<std::string> paths) {loadMainMenu(paths); });
 		//loadMainMenu();
+	
+	tex.loadFromFile("res/logo.png");
+	
 }
 
 Application::~Application()

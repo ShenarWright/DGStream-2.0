@@ -25,7 +25,7 @@ namespace Net
 		std::string base, dir;
 		//Net::HttpResponce r = Net::Https::sendrequest(url);
 		
-		if (url.find(".org") != std::string::npos)
+		if(url.find(".org") != std::string::npos)
 		{
 			base = url.substr(0, url.find(".org") + 4);
 			dir = url.substr(url.find(".org") + 4);
@@ -45,15 +45,15 @@ namespace Net
 		{
 			std::string temp = "res/img/" + val["results"][i]["id"].asString() + ".png";
 			std::string Furl = val["results"][i]["image"].asString();
-			if (val["results"][i]["image"].asString().find(' ') != std::string::npos)
+			std::string src;
+			src = val["results"][i]["image"].asString();
+			while (src.find(' ') != std::string::npos)
 			{
-				std::string temp1;
-				int pos = val["results"][i]["image"].asString().find(' ');
-				temp1 = val["results"][i]["image"].asString();
-				temp1.erase(pos, 1);
-				temp1.insert(pos, "%20");
-				std::cout << temp1 << '\n';
-				Furl = temp1;
+				int pos = src.find(' ');
+				src.erase(pos, 1);
+				src.insert(pos, "%20");
+				std::cout << src << '\n';
+				Furl = src;
 			}
 
 			paths.push_back(temp);
