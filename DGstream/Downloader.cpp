@@ -52,7 +52,7 @@ namespace Net
 			download();
 		}
 	}
-	bool Downloader::addard(std::string url, std::function<void(std::vector<std::string>)> func)
+	bool Downloader::addard(std::string url, std::function<void(Json::Value)> func)
 	{
 		m_mutex.lock();
 		tempard = ARD(url, func);

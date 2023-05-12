@@ -19,6 +19,7 @@ private:
 	std::vector<std::shared_ptr<sf::Texture>> textures;
 	std::mutex mutex;
 	sf::Texture tex;
+	Json::Value value;
 
 	void update();
 	void render();
@@ -26,8 +27,8 @@ private:
 
 	void initWindow();
 	void initGui();
-	void loadMainMenu(std::vector<std::string> paths);
-	void displaySearch(std::vector<std::string> paths);
+	void loadMainMenu(Json::Value val);
+	void displaySearch(Json::Value val);
 	void displayAnimeInfo(Json::Value val,int count = 0);
 public:
 

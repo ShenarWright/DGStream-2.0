@@ -3,7 +3,7 @@
 namespace Net
 {
 
-	ARD::ARD(std::string url, std::function<void(std::vector<std::string>)> func)
+	ARD::ARD(std::string url, std::function<void(Json::Value)> func)
 	{
 		this->url = url;
 		callback = func;
@@ -12,7 +12,7 @@ namespace Net
 	ARD::ARD()
 	{
 		url = "";
-		callback = [](std::vector<std::string>) {};
+		callback = [](Json::Value) {};
 	}
 
 	ARD::~ARD()
@@ -38,15 +38,21 @@ namespace Net
 		//std::cout << res->body << '\n';
 		r.parse(res->body, val);
 
-		std::vector<std::string> paths;
-		std::cout << val << '\n';
+		Json::Value outval = val;
+		//std::cout <<  << '\n';
 		//std::cout << val["results"].size() << '\n';
 		for (int i = 0; i < val["results"].size(); i++)
 		{
+			//Gets the name of the picture that will be saved
 			std::string temp = "res/img/" + val["results"][i]["id"].asString() + ".png";
+			outval["results"][i]["image"] = temp;
+
+			//gets the url of the image
 			std::string Furl = val["results"][i]["image"].asString();
 			std::string src;
 			src = val["results"][i]["image"].asString();
+
+			//If there is a space in the url it will add a %20
 			while (src.find(' ') != std::string::npos)
 			{
 				int pos = src.find(' ');
@@ -56,7 +62,6 @@ namespace Net
 				Furl = src;
 			}
 
-			paths.push_back(temp);
 			//std::cout << "res/img/" + val["results"][i]["id"].asString() + ".png" << '\n';
 			downloaders.push_back(std::make_shared<teemo::Teemo>());
 			downloaders.back()->start(Furl, "res/img/" + val["results"][i]["id"].asString() + ".png",
@@ -80,11 +85,11 @@ namespace Net
 		{
 			e->futureResult().wait();
 		}
-		for (auto& e : paths)
-		{
-			std::cout << e << '\n';
-		}
+		//for (auto& e : outval["results"])
+		//{
+			//std::cout << e["image"] << '\n';
+		//}
 
-		this->callback(paths);
+		this->callback(outval);
 	}
 }

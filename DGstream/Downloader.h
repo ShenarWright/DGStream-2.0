@@ -32,7 +32,7 @@ namespace Net
 		static bool deInit();
 		static void Run();
 		static bool shouldrun;
-		static bool addard(std::string url, std::function<void(std::vector<std::string>)>func = [](std::vector<std::string>) {});
+		static bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
 	private:
 		static bool download();
 		static bool downloadres();

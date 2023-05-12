@@ -7,7 +7,7 @@ namespace Net
 	class ARD
 	{
 	public:
-		ARD(std::string url,std::function<void(std::vector<std::string>)>func = [] (std::vector<std::string>) {});
+		ARD(std::string url,std::function<void(Json::Value)>func = [] (Json::Value) {});
 		ARD();
 		~ARD();
 
@@ -16,7 +16,7 @@ namespace Net
 		Json::Reader r;
 		Json::Value val;
 		std::string url;
-		std::function<void(std::vector<std::string>)>callback;
+		std::function<void(Json::Value)>callback;
 
 		std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
 	};

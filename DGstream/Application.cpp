@@ -9,15 +9,12 @@ void Application::render()
 {
 	try
 	{
-		//sf::Sprite spr;
-		//spr.setScale(.1f,.1f);
-		//spr.setTexture(tex);
-		//spr.setPosition({ 700,500 });
-		window.clear(sf::Color::White);
-		//window.draw(spr);
+		window.clear();
+
 		mutex.lock();
 		gui.draw();
 		mutex.unlock();
+
 		window.display();
 	}
 	catch (std::exception& e)
@@ -49,24 +46,25 @@ void Application::initGui()
 	gui.setTarget(window);
 }
 
-void Application::loadMainMenu(std::vector<std::string> paths)
+void Application::loadMainMenu(Json::Value val)
 {
 	mutex.lock();
 	gui.removeAllWidgets();
 	textures.clear();
+	value = val;
 
 	mainMenu = tgui::Group::create();
 	gui.add(mainMenu);
 	mainMenu->loadWidgetsFromFile("main.txt",false);
-	for (auto& e : paths)
+	for (auto& e : val["results"])
 	{
-		std::cout << e << '\n';
+		std::cout << e["image"] << '\n';
 	}
 
 	auto searchbar = mainMenu->get<tgui::EditBox>("SearchBar");
 	searchbar->onReturnKeyPress([&](tgui::EditBox::Ptr s)
 		{
-			Net::Downloader::addard(gogourl + Sys::hayphenate(s->getText().toStdString()), [&](std::vector<std::string> paths) {displaySearch(paths); });
+			Net::Downloader::addard(gogourl  "/" + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) {displaySearch(val); });
 			//displaySearch("https://api.consumet.org/anime/gogoanime/" + s->getText().toStdString());
 			s->setFocused(false);
 		}, searchbar
@@ -81,32 +79,32 @@ void Application::loadMainMenu(std::vector<std::string> paths)
 	//tgui::Picture::create(tgui::Texture("res/My hero academia0.png"));
 	for (int i = 0; i < 1; i++)
 	{
-		auto row = tgui::ScrollablePanel::create({ "100%",300 });
+		auto row = tgui::ScrollablePanel::create({ "100%",350 });
 		row->setPosition(0, i * 152);
 		//row->getRenderer()->setBackgroundColor(tgui::Color::Red);
 		
-		for (int j = 0;j < paths.size(); j++)
+		for (int j = 0;j < val["results"].size(); j++)
 		{
 			//std::getline(fs, temp);
 			textures.push_back(std::make_shared<sf::Texture>());
-			textures[j]->loadFromFile(paths[j]);
+			textures[j]->loadFromFile(val["results"][j]["image"].asCString());
 			auto p = tgui::Picture::create();
 			p->getRenderer()->setTexture(*textures[j].get());
-			auto l = tgui::Label::create(paths[j].c_str());
-			l->setTextSize(25);
-			l->setSize(200, l->getSize().y);
+			auto l = tgui::Label::create(val["results"][j]["title"].asCString());
+			l->setTextSize(20);
+			l->setSize(200, l->getSize().y * 2);
 			p->setSize(200, 200);
-			p->setPosition(j * (p->getSize().x + 30), 10);
+			p->setPosition(j * (p->getSize().x + 30) + 10, 10);
 			p->onClick([&](int count)
 				{
-					Net::Https::sendrequestcb(consumet, gogo info "spy-x-family", [&](Json::Value v)
+					Net::Https::sendrequestcb(consumet, gogo info + value["results"][count]["id"].asString(), [&](Json::Value v)
 						{
 							displayAnimeInfo(v, count);
 						}
 							);
 				},j
 			);
-			l->setPosition(j * (p->getSize().x + 30), p->getSize().x + 10);
+			l->setPosition(j * (p->getSize().x + 30) + 10, p->getSize().x + 10);
 			row->add(p);
 			row->add(l);
 			//row->setHorizontalScrollbarPolicy()
@@ -118,32 +116,55 @@ void Application::loadMainMenu(std::vector<std::string> paths)
 	mutex.unlock();
 }
 
-void Application::displaySearch(std::vector<std::string> paths)
+void Application::displaySearch(Json::Value val)
 {
 	mutex.lock();
 	searchpanel = tgui::Group::create();
 	gui.removeAllWidgets();
 	textures.clear();
+	std::cout << val << '\n';
+
+	value = val;
 
 	gui.add(searchpanel);
 	searchpanel->loadWidgetsFromFile("searchpanel.txt");
 	auto scrollbar = searchpanel->get<tgui::ScrollablePanel>("panel");
 	auto searchbar = searchpanel->get<tgui::EditBox>("searchbar");
 	searchbar->onReturnKeyPress([&](tgui::EditBox::Ptr s) {
-		Net::Downloader::addard(gogourl + Sys::hayphenate(s->getText().toStdString()), [&](std::vector<std::string> strs) {displaySearch(strs); });
+		Net::Downloader::addard(gogourl + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) {displaySearch(val) ; });
 		s->setFocused(false);
 		},searchbar);
 	//Net::APD apd(url);
 	//apd.work();
 	int x = 0;
 	int y = 0;
-	for (int i = 0; i < paths.size(); i++)
+	for (int i = 0; i < val["results"].size(); i++)
 	{
-		auto p = tgui::Picture::create(paths[i].c_str());
+		//std::cout << "iteration:" << i << " Path:" << val["results"][i]["image"];
+		textures.push_back(std::make_shared<sf::Texture>());
+		textures.back()->loadFromFile(val["results"][i]["image"].asCString());
+		auto p = tgui::Picture::create(*textures.back().get());
+		auto label = tgui::Label::create(val["results"][i]["title"].asCString());
 		scrollbar->add(p);
-		p->setPosition(x * 320, y * 320);
+		scrollbar->add(label);
+		p->setPosition(x * 320, y * 340);
 		p->setSize(300, 300);
-		std::cout << "X:" << x << ", Y:" << y << '\n';
+		
+		label->setSize(300, label->getSize().y);
+		label->setPosition(p->getPosition().x, p->getPosition().y + p->getSize().y);
+		std::cout << "pic X:" << p->getPosition().x << ", pic Y:" << p->getPosition().y << '\n';
+		std::cout << "label X:" << label->getPosition().x << ", lavel Y:" << label->getPosition().y << '\n';
+		
+		p->onClick([&](int a)
+			{
+				std::cout << consumet gogo info + value["results"][a]["id"].asString();
+				Net::Https::sendrequestcb(consumet, gogo info + value["results"][a]["id"].asString(), [&](Json::Value v)
+					{
+						std::cout << v << '\n';
+						displayAnimeInfo(v, a);
+					}
+				);
+			},i);
 
 		x++;
 		if ((((i + 1) % 5) == 0) && i != 0)
@@ -157,14 +178,19 @@ void Application::displaySearch(std::vector<std::string> paths)
 
 void Application::displayAnimeInfo(Json::Value val,int count)
 {
+	mutex.lock();
+	gui.removeAllWidgets();
 	animeInfo = tgui::Group::create();
 	animeInfo->loadWidgetsFromFile("animeinfo.txt");
-	mainMenu->setVisible(false);
+	//mainMenu->setVisible(false);
 	gui.add(animeInfo);
 	auto pic = animeInfo->get<tgui::Picture>("Animepic");
-	auto label = animeInfo->get<tgui::Label>("Label1");
+	auto label = animeInfo->get<tgui::Label>("Description");
+	auto name = animeInfo->get<tgui::Label>("Name");
 	label->setText(val["description"].asString());
+	name->setText(val["title"].asString());
 	pic->getRenderer()->setTexture(*textures[count].get());
+	mutex.unlock();
 }
 
 Application::Application()
@@ -177,18 +203,18 @@ Application::Application()
 	//Net::APD apd("https://api.consumet.org/anime/gogoanime/top-airing");
 	//apd.work();
 	if (Net::Https::hasInternet())
-		Net::Downloader::addard(gogourl topairing, [&](std::vector<std::string> paths) {loadMainMenu(paths); });
+		Net::Downloader::addard(gogourl topairing, [&](Json::Value val) {loadMainMenu(val); });
 		//loadMainMenu();
 	
-	tex.loadFromFile("res/logo.png");
+	//tex.loadFromFile("res/logo.png");
 	
 }
 
 Application::~Application()
 {
 	Net::Downloader::shouldrun = false;
-	Net::Downloader::deInit();
 	downloadthread.join();
+	Net::Downloader::deInit();
 }
 
 void Application::run()
