@@ -3,6 +3,7 @@
 #include "Downloader.h"
 #include "Https.h"
 #include "urls.h"
+#include "Player.h"
 
 #define APD ApiResourceDownloader
 
@@ -11,24 +12,32 @@ class Application
 private:
 	sf::RenderWindow window;
 	sf::Event ev;
+	sf::Texture tex;
+
 	tgui::Gui gui;
 	tgui::Group::Ptr mainMenu;
 	tgui::Group::Ptr searchpanel;
 	tgui::Group::Ptr animeInfo;
+
 	std::thread downloadthread;
 	std::vector<std::shared_ptr<sf::Texture>> textures;
+	std::map<std::string, Json::Value> jsons;
 	std::mutex mutex;
-	sf::Texture tex;
+	std::shared_ptr<Player> player;
+
 	Json::Value value;
+
+	bool playvideo;
 
 	void update();
 	void render();
 	void handleEvents();
+	void playVideo(std::string url);
 
 	void initWindow();
 	void initGui();
-	void loadMainMenu(Json::Value val);
-	void displaySearch(Json::Value val);
+	void loadMainMenu();
+	void displaySearch();
 	void displayAnimeInfo(Json::Value val,int count = 0);
 public:
 

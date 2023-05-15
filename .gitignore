@@ -1,4 +1,5 @@
 DGstream/res
+DGstream/dependencies
 bin/
 x64/
 .vs/

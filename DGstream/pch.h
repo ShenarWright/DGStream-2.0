@@ -10,6 +10,7 @@
 #include <thread>
 #include <memory>
 #include <functional>
+#include <map>
 
 #include <curl/curl.h>
 #include <teemo/teemo.h>

@@ -11,6 +11,11 @@ void Application::render()
 	{
 		window.clear();
 
+		if (playvideo)
+			player->render();
+
+		window.resetGLStates();
+
 		mutex.lock();
 		gui.draw();
 		mutex.unlock();
@@ -32,6 +37,17 @@ void Application::handleEvents()
 		
 		gui.handleEvent(ev);
 	}
+	if (playvideo)
+		player->handleEvents();
+}
+
+void Application::playVideo(std::string url)
+{
+	gui.removeAllWidgets();
+	player = std::make_shared<Player>(url);
+	player->setSize(1920, 1080);
+	player->addWidgetstoGui(gui);
+	playvideo = true;
 }
 
 void Application::initWindow()
@@ -46,16 +62,18 @@ void Application::initGui()
 	gui.setTarget(window);
 }
 
-void Application::loadMainMenu(Json::Value val)
+void Application::loadMainMenu()
 {
 	mutex.lock();
 	gui.removeAllWidgets();
 	textures.clear();
-	value = val;
+	//temporary
+	auto val = jsons["top-airing"];
 
 	mainMenu = tgui::Group::create();
 	gui.add(mainMenu);
 	mainMenu->loadWidgetsFromFile("main.txt",false);
+	mainMenu->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, 600.f);
 	for (auto& e : val["results"])
 	{
 		std::cout << e["image"] << '\n';
@@ -64,8 +82,17 @@ void Application::loadMainMenu(Json::Value val)
 	auto searchbar = mainMenu->get<tgui::EditBox>("SearchBar");
 	searchbar->onReturnKeyPress([&](tgui::EditBox::Ptr s)
 		{
-			Net::Downloader::addard(gogourl  "/" + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) {displaySearch(val); });
-			//displaySearch("https://api.consumet.org/anime/gogoanime/" + s->getText().toStdString());
+			Net::Downloader::addard(gogourl  "/" + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) 
+				{
+					if (jsons.find("search") != jsons.end())
+					{
+						jsons["search"] = val;
+					}
+					else
+						jsons.insert({ "search",val });
+
+					displaySearch(); 
+				});
 			s->setFocused(false);
 		}, searchbar
 	);
@@ -97,7 +124,7 @@ void Application::loadMainMenu(Json::Value val)
 			p->setPosition(j * (p->getSize().x + 30) + 10, 10);
 			p->onClick([&](int count)
 				{
-					Net::Https::sendrequestcb(consumet, gogo info + value["results"][count]["id"].asString(), [&](Json::Value v)
+					Net::Https::sendrequestcb(consumet, gogo info + jsons["top-airing"]["results"][count]["id"].asString(), [&](Json::Value v)
 						{
 							displayAnimeInfo(v, count);
 						}
@@ -116,22 +143,37 @@ void Application::loadMainMenu(Json::Value val)
 	mutex.unlock();
 }
 
-void Application::displaySearch(Json::Value val)
+void Application::displaySearch()
 {
 	mutex.lock();
 	searchpanel = tgui::Group::create();
 	gui.removeAllWidgets();
 	textures.clear();
-	std::cout << val << '\n';
-
-	value = val;
-
+	std::cout << jsons["search"] << '\n';
+	
 	gui.add(searchpanel);
+	//searchpanel->showWithEffect(tgui::ShowAnimationType::SlideFromTop,1000);
+	Json::Value val = jsons["search"];
+
 	searchpanel->loadWidgetsFromFile("searchpanel.txt");
 	auto scrollbar = searchpanel->get<tgui::ScrollablePanel>("panel");
 	auto searchbar = searchpanel->get<tgui::EditBox>("searchbar");
+	auto back = searchpanel->get<tgui::Button>("back");
+	back->onClick([&]()
+		{
+			loadMainMenu();
+		}
+	);
 	searchbar->onReturnKeyPress([&](tgui::EditBox::Ptr s) {
-		Net::Downloader::addard(gogourl + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) {displaySearch(val) ; });
+		Net::Downloader::addard(gogourl "/" + Sys::hayphenate(s->getText().toStdString()), [&](Json::Value val) {
+			if (jsons.find("search") != jsons.end())
+			{
+				jsons["search"] = val;
+			}
+			else
+				jsons.insert({ "search",val });
+			displaySearch(); 
+		});
 		s->setFocused(false);
 		},searchbar);
 	//Net::APD apd(url);
@@ -157,14 +199,14 @@ void Application::displaySearch(Json::Value val)
 		
 		p->onClick([&](int a)
 			{
-				std::cout << consumet gogo info + value["results"][a]["id"].asString();
-				Net::Https::sendrequestcb(consumet, gogo info + value["results"][a]["id"].asString(), [&](Json::Value v)
+				std::cout << consumet gogo info + jsons["search"]["results"][a]["id"].asString();
+				Net::Https::sendrequestcb(consumet, gogo info + jsons["search"]["results"][a]["id"].asString(), [&](Json::Value v)
 					{
 						std::cout << v << '\n';
 						displayAnimeInfo(v, a);
 					}
 				);
-			},i);
+		},i);
 
 		x++;
 		if ((((i + 1) % 5) == 0) && i != 0)
@@ -187,6 +229,31 @@ void Application::displayAnimeInfo(Json::Value val,int count)
 	auto pic = animeInfo->get<tgui::Picture>("Animepic");
 	auto label = animeInfo->get<tgui::Label>("Description");
 	auto name = animeInfo->get<tgui::Label>("Name");
+	auto back = animeInfo->get<tgui::Button>("back");
+	auto play = animeInfo->get<tgui::Button>("play");
+	
+	play->onClick([&](Json::Value v)
+		{
+			Net::Https::sendrequestcb(consumet, gogo watch + v["episodes"][0]["id"].asString() + server gogocdn,
+			[&](Json::Value newvalue)
+				{
+					std::cout << newvalue << '\n';
+
+					playVideo(newvalue["sources"][2]["url"].asString());
+				}
+			);
+		},val
+	);
+
+	back->onClick([&]()
+		{
+			if (jsons.find("search") != jsons.end())
+			{
+				displaySearch();
+			}
+			else
+				loadMainMenu();
+		});
 	label->setText(val["description"].asString());
 	name->setText(val["title"].asString());
 	pic->getRenderer()->setTexture(*textures[count].get());
@@ -199,11 +266,16 @@ Application::Application()
 	this->downloadthread = std::thread(Net::Downloader::Run);
 	initWindow();
 	initGui();
+	playvideo = false;
 
 	//Net::APD apd("https://api.consumet.org/anime/gogoanime/top-airing");
 	//apd.work();
 	if (Net::Https::hasInternet())
-		Net::Downloader::addard(gogourl topairing, [&](Json::Value val) {loadMainMenu(val); });
+		Net::Downloader::addard(gogourl topairing, [&](Json::Value val) 
+		{
+			jsons.insert({ "top-airing",val });
+			loadMainMenu(); 
+		});
 		//loadMainMenu();
 	
 	//tex.loadFromFile("res/logo.png");
