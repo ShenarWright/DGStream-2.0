@@ -78,7 +78,7 @@ namespace Net
 
 			downloaders.push_back(std::make_shared<teemo::Teemo>());
 			auto r = downloaders.back()->start(e.url, e.targetpath, e.result_callback, e.progress_callback, e.speed_callback);
-			int count = downloaders.size();
+			size_t count = downloaders.size();
 			
 			for (auto& e : downloaders)
 			{

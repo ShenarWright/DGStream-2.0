@@ -38,7 +38,7 @@ private:
 	void initGui();
 	void loadMainMenu();
 	void displaySearch();
-	void displayAnimeInfo(Json::Value val,int count = 0);
+	void displayAnimeInfo(int count = 0);
 public:
 
 	Application();

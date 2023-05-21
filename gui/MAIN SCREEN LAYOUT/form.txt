@@ -1,0 +1,438 @@
+Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
+Renderer.2 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
+Picture.REFERENCE {
+    Position = (0, 1);
+    Size = (1920, 1080);
+
+    Renderer {
+        Opacity = 1;
+        Texture = "../DANTE APP MAIN SCREEN/SCREEN BACKGROUND.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Button."SEARCH ICON" {
+    Position = (1128, 85);
+    Size = (70, 48);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = "../DANTE APP MAIN SCREEN/SEARCH ICON.png" Part(30, 50, 1600, 1080) Smooth;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+EditBox."SEARCH BAR" {
+    Position = (1205, 19);
+    Size = (660, 163.699);
+    Text = "     Search";
+    TextSize = 36;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #F8FCFF3A;
+        TextColorDisabled = #7D7D7D;
+        TextStyle = Italic;
+        Texture = "../DANTE APP MAIN SCREEN/SEARCH BAR.png" Part(30, 200, 1920, 500) Smooth;
+        TextureDisabled = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Picture."FEATURED ANIME COVER" {
+    Position = (276.333, 84.0759);
+    Size = (353.999, 516);
+
+    Renderer {
+        Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.LOGO {
+    Position = (26, 90);
+    Size = (80, 84);
+
+    Renderer {
+        Texture = "../DANTE APP MAIN SCREEN/LOGO.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+ListView.DRAWER {
+    ExpandLastColumn = 0;
+    HeaderHeight = 0;
+    HeaderSeparatorHeight = 0;
+    HeaderVisible = true;
+    ItemHeight = 19;
+    Position = (130, 111.105);
+    ResizableColumns = false;
+    SeparatorWidth = 1;
+    ShowVerticalGridLines = 1;
+    Size = (58, 47.8947);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorHover = white;
+        BorderColor = transparent;
+        Borders = (1, 1, 1, 1);
+        HeaderBackgroundColor = #E6E6E6;
+        HeaderTextColor = black;
+        Padding = (0, 0, 0, 0);
+        SelectedBackgroundColor = #006EFF;
+        SelectedBackgroundColorHover = #1E96FF;
+        SelectedTextColor = white;
+        SeparatorColor = #C8C8C8;
+        TextColor = #3C3C3C;
+        TextColorHover = black;
+        TextureBackground = "../DANTE APP MAIN SCREEN/DRAWER.png" Smooth;
+        TextureHeaderBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+Label.TITLE {
+    AutoSize = true;
+    Position = (680, 207);
+    Size = (652, 78);
+    Text = "Jujutsu Kaisen (2020)";
+    TextSize = 60;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #FAFDFF70;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+Label.DESCRIPTION {
+    AutoSize = true;
+    Position = (672, 293);
+    Size = (1193, 214);
+    Text = "A boy swallows a cursed talisman - the finger of a demon - and becomes\ncursed himself. He enters a shaman's school to be able \nto locate the demon's other body parts and thus exorcise himself.\n\nCast: Junya Enoki, Yûichi Nakamura, Yuma Uchida, Mitsuo Iwata, Asami Seto,\nJun'ichi Suwabe, Nobunaga Shimazaki, Kenjirô Tsuda, Shigeru Chiba";
+    TextSize = 30;
+
+    Renderer {
+        BorderColor = rgba(240, 240, 240, 215);
+        TextColor = #F8FFFE50;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = rgba(160, 160, 160, 215);
+            ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+            ArrowColor = rgba(200, 200, 200, 215);
+            ArrowColorHover = rgba(225, 225, 225, 215);
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = rgba(185, 185, 185, 215);
+            ThumbColorHover = rgba(195, 195, 195, 215);
+            TrackColor = rgba(160, 160, 160, 215);
+            TrackColorHover = rgba(170, 170, 170, 215);
+        }
+    }
+}
+
+Picture.TRENDING {
+    Position = (95, 583.25);
+    Size = (220, 123.75);
+
+    Renderer {
+        Texture = "../DANTE APP MAIN SCREEN/TRENDING.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+ScrollablePanel."TRENDING ScrollablePanel" {
+    ContentSize = (0, 0);
+    Position = (20, 664.665);
+    Size = (1870, 555.333);
+
+    Renderer {
+        BackgroundColor = white;
+        BorderColor = black;
+        TextureBackground = "../DANTE APP MAIN SCREEN/RECTANGLE WITH LOW OPACITY.png" Smooth;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+
+    Picture."ANIME ART 1" {
+        Position = (99.9992, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Picture."ANIME ART 2" {
+        Position = (399.999, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Picture."ANIME ART 3" {
+        Position = (699.999, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Picture."ANIME ART 4" {
+        Position = (999.999, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Picture."ANIME ART 5" {
+        Position = (1300, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Picture."ANIME ART 6" {
+        Position = (1600, 40);
+        Size = (204, 296);
+
+        Renderer {
+            Texture = "../DANTE APP MAIN SCREEN/ANIME COVER.png" Smooth;
+            TransparentTexture = false;
+        }
+    }
+
+    Label.LABEL1 {
+        HorizontalAlignment = Center;
+        Position = (120, 350);
+        Renderer = &1;
+        Size = (154, 61);
+        Text = "Black Clover";
+        TextSize = 24;
+    }
+
+    Label."Label 2" {
+        HorizontalAlignment = Center;
+        Position = (440, 350);
+        Renderer = &1;
+        Size = (125, 61);
+        Text = "One Piece";
+        TextSize = 24;
+    }
+
+    Label."Label 3" {
+        HorizontalAlignment = Center;
+        Position = (730, 350);
+        Renderer = &1;
+        Size = (145, 61);
+        Text = "Dragon Ball Super";
+        TextSize = 24;
+    }
+
+    Label."Label 4" {
+        HorizontalAlignment = Center;
+        Position = (1010, 350);
+        Size = (195, 61);
+        Text = "Demon Slayer";
+        TextSize = 24;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label."Label 5" {
+        HorizontalAlignment = Center;
+        Position = (1300, 350);
+        Renderer = &2;
+        Size = (195, 61);
+        Text = "Tokyo Ghoul";
+        TextSize = 24;
+    }
+
+    Label."Label 6" {
+        HorizontalAlignment = Center;
+        Position = (1610, 350);
+        Renderer = &2;
+        Size = (195, 81);
+        Text = "Seven Deadly Sins: Bright ";
+        TextSize = 24;
+    }
+}

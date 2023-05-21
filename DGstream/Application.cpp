@@ -14,6 +14,7 @@ void Application::render()
 		if (playvideo)
 			player->render();
 
+
 		window.resetGLStates();
 
 		mutex.lock();
@@ -48,6 +49,21 @@ void Application::playVideo(std::string url)
 	player->setSize(1920, 1080);
 	player->addWidgetstoGui(gui);
 	playvideo = true;
+	player->setTitle(jsons["animeInfo"]["title"].asString());
+	player->onBackButtonPressed([&]()
+		{
+			player = nullptr;
+			playvideo = false;
+
+			if (jsons.find("animeInfo") != jsons.end())
+			{
+				displayAnimeInfo();
+			}
+			else
+				loadMainMenu();
+		}
+	);
+	
 }
 
 void Application::initWindow()
@@ -73,7 +89,7 @@ void Application::loadMainMenu()
 	mainMenu = tgui::Group::create();
 	gui.add(mainMenu);
 	mainMenu->loadWidgetsFromFile("main.txt",false);
-	mainMenu->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, 600.f);
+	mainMenu->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, 600);
 	for (auto& e : val["results"])
 	{
 		std::cout << e["image"] << '\n';
@@ -110,7 +126,7 @@ void Application::loadMainMenu()
 		row->setPosition(0, i * 152);
 		//row->getRenderer()->setBackgroundColor(tgui::Color::Red);
 		
-		for (int j = 0;j < val["results"].size(); j++)
+		for (unsigned int j = 0;j < val["results"].size(); j++)
 		{
 			//std::getline(fs, temp);
 			textures.push_back(std::make_shared<sf::Texture>());
@@ -126,7 +142,14 @@ void Application::loadMainMenu()
 				{
 					Net::Https::sendrequestcb(consumet, gogo info + jsons["top-airing"]["results"][count]["id"].asString(), [&](Json::Value v)
 						{
-							displayAnimeInfo(v, count);
+							if (jsons.find("animeInfo") != jsons.end())
+							{
+								jsons["animeInfo"] = v;
+							}
+							else
+								jsons.insert({ "animeInfo",v });
+
+							displayAnimeInfo(count);
 						}
 							);
 				},j
@@ -180,7 +203,7 @@ void Application::displaySearch()
 	//apd.work();
 	int x = 0;
 	int y = 0;
-	for (int i = 0; i < val["results"].size(); i++)
+	for (unsigned int i = 0; i < val["results"].size(); i++)
 	{
 		//std::cout << "iteration:" << i << " Path:" << val["results"][i]["image"];
 		textures.push_back(std::make_shared<sf::Texture>());
@@ -203,7 +226,13 @@ void Application::displaySearch()
 				Net::Https::sendrequestcb(consumet, gogo info + jsons["search"]["results"][a]["id"].asString(), [&](Json::Value v)
 					{
 						std::cout << v << '\n';
-						displayAnimeInfo(v, a);
+						if (jsons.find("animeInfo") != jsons.end())
+						{
+							jsons["animeInfo"] = v;
+						}
+						else
+							jsons.insert({ "animeInfo",v });
+						displayAnimeInfo(a);
 					}
 				);
 		},i);
@@ -218,10 +247,11 @@ void Application::displaySearch()
 	mutex.unlock();
 }
 
-void Application::displayAnimeInfo(Json::Value val,int count)
+void Application::displayAnimeInfo(int count)
 {
 	mutex.lock();
 	gui.removeAllWidgets();
+	Json::Value val = jsons["animeInfo"];
 	animeInfo = tgui::Group::create();
 	animeInfo->loadWidgetsFromFile("animeinfo.txt");
 	//mainMenu->setVisible(false);
@@ -231,7 +261,8 @@ void Application::displayAnimeInfo(Json::Value val,int count)
 	auto name = animeInfo->get<tgui::Label>("Name");
 	auto back = animeInfo->get<tgui::Button>("back");
 	auto play = animeInfo->get<tgui::Button>("play");
-	
+	auto btn1 = animeInfo->get<tgui::Button>("download");
+
 	play->onClick([&](Json::Value v)
 		{
 			Net::Https::sendrequestcb(consumet, gogo watch + v["episodes"][0]["id"].asString() + server gogocdn,
@@ -239,7 +270,7 @@ void Application::displayAnimeInfo(Json::Value val,int count)
 				{
 					std::cout << newvalue << '\n';
 
-					playVideo(newvalue["sources"][2]["url"].asString());
+					playVideo(newvalue["sources"][3]["url"].asString());
 				}
 			);
 		},val
@@ -249,11 +280,41 @@ void Application::displayAnimeInfo(Json::Value val,int count)
 		{
 			if (jsons.find("search") != jsons.end())
 			{
+				
 				displaySearch();
 			}
 			else
 				loadMainMenu();
+
+			jsons.erase("animeInfo");
 		});
+
+	btn1->onClick([&](Json::Value v)
+		{
+			Net::Https::sendrequestcb(consumet, gogo servers + v["episodes"][0]["id"].asString(),
+			[&](Json::Value newvalue)
+				{
+					std::cout << newvalue << '\n';
+
+					for (unsigned int i = 0; i < newvalue.size(); i++)
+					{
+						if (newvalue[i]["name"].asString() == "Mp4Upload")
+						{
+							std::string url = newvalue[i]["url"].asString();
+							std::string base = url.substr(0,url.find(".com") + 4);
+							std::string path = url.substr(url.find(".com") + 4);
+							auto res = Net::Https::sendrequest(base,path);
+
+							std::cout << "base:" << base << '\n';
+							std::cout << "path:" << path << '\n';
+
+							std::cout << res->body << '\n';
+						}
+
+					}
+				});
+		},val
+	);
 	label->setText(val["description"].asString());
 	name->setText(val["title"].asString());
 	pic->getRenderer()->setTexture(*textures[count].get());
@@ -273,6 +334,7 @@ Application::Application()
 	if (Net::Https::hasInternet())
 		Net::Downloader::addard(gogourl topairing, [&](Json::Value val) 
 		{
+			std::cout << val << '\n';
 			jsons.insert({ "top-airing",val });
 			loadMainMenu(); 
 		});

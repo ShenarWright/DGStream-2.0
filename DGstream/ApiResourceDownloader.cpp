@@ -25,23 +25,30 @@ namespace Net
 		std::string base, dir;
 		//Net::HttpResponce r = Net::Https::sendrequest(url);
 		
-		if(url.find(".org") != std::string::npos)
+		if(url.find("3000") != std::string::npos)
 		{
-			base = url.substr(0, url.find(".org") + 4);
-			dir = url.substr(url.find(".org") + 4);
+			//base = url.substr(0, url.find(".org") + 4);
+			base = "http://localhost:3000";//url.substr(0, url.find(".org") + 4);
+			//dir = url.substr(url.find(".org") + 4);
+			dir = url.substr(url.find("3000") + 4);
 			std::cout << base << '\n';
 			std::cout << dir << '\n';
 		}
 
 		//httplib::Client cli(base);
 		auto res = Net::Https::sendrequest(base,dir);
+		if (res.error() != httplib::Error::Success)
+		{
+			std::cout << httplib::to_string(res.error()) << '\n';
+			return;
+		}
 		//std::cout << res->body << '\n';
 		r.parse(res->body, val);
 
 		Json::Value outval = val;
 		//std::cout <<  << '\n';
 		//std::cout << val["results"].size() << '\n';
-		for (int i = 0; i < val["results"].size(); i++)
+		for (unsigned int i = 0; i < val["results"].size(); i++)
 		{
 			//Gets the name of the picture that will be saved
 			std::string temp = "res/img/" + val["results"][i]["id"].asString() + ".png";
@@ -55,7 +62,7 @@ namespace Net
 			//If there is a space in the url it will add a %20
 			while (src.find(' ') != std::string::npos)
 			{
-				int pos = src.find(' ');
+				size_t pos = src.find(' ');
 				src.erase(pos, 1);
 				src.insert(pos, "%20");
 				std::cout << src << '\n';

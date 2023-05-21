@@ -7,157 +7,182 @@ void* Player::get_proc_address_mpv(void* unused, const char* name)
 	return ((void*)sf::Context::getFunction(name));
 }
 
+int M::mx;
+int M::my;
 
 void Player::initgui()
 {
-	progress = tgui::ProgressBar::create();
-	slider = tgui::Slider::create();
-	posLabel = tgui::Label::create();
-	tbtn = tgui::ToggleButton::create();
-	qual = tgui::ComboBox::create();
-	forward = tgui::Button::create("-->");
-	backward = tgui::Button::create("<--");
-
-	tbtn->setSize(60, 60);
-	tbtn->setPosition(400, 400);
-	posLabel->getRenderer()->setTextColor(tgui::Color::Red);
-
-	progress->setMaximum(1000);
-	slider->setMaximum(1000);
-
-	slider->getRenderer()->setOpacity(0.1f);
-
-	slider->onValueChange([&]() {goTop(slider->getValue() / 10); });
-	tbtn->onClick([&]() {ispaused() ? play() : pause();  });
-	qual->setSize(100, 50);
-	qual->setPosition(200, height - 50);
-	qual->addItem("Auto");
-	qual->addItem("360p");
-	qual->addItem("480p");
-	qual->addItem("720p");
-	qual->setSelectedItemByIndex(0);
-
-	forward->onClick([&]() {seek(10); });
-	backward->onClick([&]() {seek(-10); });
 	hud = false;
+	widgets = tgui::Group::create();
+	widgets->loadWidgetsFromFile("player.txt");
+
+	slider = tgui::Slider::create();
+	progress = widgets->get<tgui::ProgressBar>("PROGRESS BAR");
+	startlabel = widgets->get<tgui::Label>("TIME STAMPS START");
+	endlabel = widgets->get<tgui::Label>("TIME STAMP END");
+	tbtn = widgets->get<tgui::ToggleButton>("PLAY BUTTON");
+	forward = widgets->get<tgui::Button>("NEXT BUTTONS");
+	backward = widgets->get<tgui::Button>("PREVIOUS BUTTON");
+	settings = widgets->get<tgui::Button>("SETTINGS BUTTON");
+	volume = widgets->get<tgui::Button>("VOLUME BUTTON");
+	download = widgets->get<tgui::Button>("DOWNLOAD BUTTON");
+	fullscreen = widgets->get<tgui::Button>("FULLSCREEN");
+	sub = widgets->get<tgui::Button>("SUB");
+	dub = widgets->get<tgui::Button>("DUB");
+	back = widgets->get<tgui::Button>("BACK BUTTON");
+	icons = widgets->get<tgui::Picture>("ICONS");
+	background = widgets->get<tgui::Picture>("BACKGROUND");
+	animetitle = widgets->get<tgui::Label>("ANIME TITLE");
+	slider->setPosition(progress->getPosition());
+	slider->setSize(progress->getSize());
+	slider->getRenderer()->setOpacity(0.1f);
+	widgets->add(slider);
+	slider->setMaximum(1000);
+	progress->setMaximum(1000);
+	tbtn->onClick([&]() {ispaused() ? play() : pause();  });
+	slider->onValueChange([&]() {goTop(slider->getValue() / 10); });
+	//
+	forward->onClick([&]() {
+		cmd[0] = "playlist-next";
+		cmd[1] = "force";
+		cmd[2] = NULL;
+		mpv_command_async(mpv, 0, cmd);
+
+		});
+	backward->onClick([&]() {
+		cmd[0] = "playlist-prev";
+		cmd[1] = "force";
+		cmd[2] = NULL;
+		mpv_command_async(mpv, 0, cmd);
+		});
+	showHud(true);
 }
 
 void Player::updateSize()
 {
-	progress->setSize(width, 30);
-	slider->setSize(progress->getSize());
 
-	forward->setSize(30, 30);
-	backward->setSize(30, 30);
 }
 
 void Player::updatePosition()
 {
-	tbtn->setPosition(400, height - 100);
-	progress->setPosition(0, height - 150);
-	slider->setPosition(progress->getPosition());
-	posLabel->setPosition(0, height - 100);
-	qual->setPosition(200, height - 100);
-	forward->setPosition(550, height - 100);
-	backward->setPosition(500, height - 100);
+
 }
 
 void Player::updatelabel()
 {
-	std::stringstream ss;
-	posLabel->setTextSize(20);
+	std::stringstream start;
+	std::stringstream end;
 
 	if (pos > 59)
 	{
-		int mins = pos / 60;
+		int mins = (int)pos / 60;
 		int secs = (int)pos % 60;
 
 		if (mins > 59)
 		{
 			int hr = mins / 60;
 			mins = mins % 60;
-			ss << hr << ':';
+			start << hr << ':';
 		}
 
 		if (mins < 10)
-			ss << "0" << mins;
+			start << "0" << mins;
 		else
-			ss << mins;
+			start << mins;
 
 		if (secs < 10)
-			ss << ":0" << secs;
+			start << ":0" << secs;
 		else
-			ss << ':' << secs;
+			start << ':' << secs;
 	}
 	else
 	{
 		if (pos < 10)
-			ss << "00" << ":0" << (int)pos;
+			start << "00" << ":0" << (int)pos;
 		else
-			ss << "00" << ':' << (int)pos;
+			start << "00" << ':' << (int)pos;
 	}
 
-	ss << " / ";
+	//ss << " / ";
 	if (duration > 59)
 	{
-		int mins = duration / 60;
+		int mins = (int)duration / 60;
 		int secs = (int)duration % 60;
 
 		if (mins > 59)
 		{
 			int hr = mins / 60;
 			mins = mins % 60;
-			ss << hr << ':';
+			end << hr << ':';
 		}
 
 		if (mins < 10)
 		{
-			ss << "0" << mins;
+			end << "0" << mins;
 		}
 		else
-			ss << mins;
+			end << mins;
 
 
 		if (secs < 10)
-			ss << ":0" << secs;
+			end << ":0" << secs;
 		else
-			ss << ':' << secs;
+			end << ':' << secs;
 	}
 	else
 	{
 		if (duration < 10)
-			ss << "00:" << "0" << (int)duration;
+			end << "00:" << "0" << (int)duration;
 		else
-			ss << "00:" << (int)duration;
+			end << "00:" << (int)duration;
 	}
 
 
-	posLabel->setText(ss.str());
+	startlabel->setText(start.str());
+	endlabel->setText(end.str());
 }
 
 void Player::showHud(bool show)
 {
 	hud = show;
-	
+	std::cout << "HUD\n";
 	if (hud)
 	{
-		progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
-		slider->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
-		posLabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
-		tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
-		qual->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
-		forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom ,100.f);
-		backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 100.f);
+		progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+		back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+		animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+		fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+		background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
 	}
 	else
 	{
-		progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-			slider->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-		posLabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-		tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-		qual->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-		forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
-		backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100.f);
+		progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+		back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+		animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+		fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+		background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
 	}
 }
 
@@ -169,7 +194,6 @@ bool Player::isHudshown()
 Player::Player(std::string str)
 //mpv(NULL),width(800),height(640)
 {
-	duration = 0;
 	initgui();
 	paused = false;
 	mpv = mpv_create();
@@ -202,14 +226,15 @@ Player::Player(std::string str)
 		return;
 	}
 
+	
 	//init();
 	load(str);
+	duration = 0;
 
 }
 
 Player::Player()
 {
-	duration = 0;
 	initgui();
 	paused = false;
 	mpv = mpv_create();
@@ -243,6 +268,7 @@ Player::Player()
 		return;
 	}
 
+	duration = 0;
 	//init();
 }
 
@@ -319,6 +345,7 @@ void Player::pause()
 	cmd[2] = NULL;
 	mpv_command_async(mpv, 0, cmd);
 	paused = true;
+	tbtn->setDown(true);
 }
 
 void Player::play()
@@ -327,7 +354,9 @@ void Player::play()
 	cmd[1] = "pause";
 	cmd[2] = NULL;
 	mpv_command_async(mpv, 0, cmd);
-	paused = true;
+	paused = false;
+	tbtn->setDown(false);
+
 }
 
 bool Player::ispaused()
@@ -416,7 +445,7 @@ void Player::handleEvents()
 			{
 				if (event_prop->format == MPV_FORMAT_DOUBLE) {
 					int a = *(double*)event_prop->data;
-					std::cout << "time:" << a << '\n';
+					//std::cout << "time:" << a << '\n';
 				}
 				else if (event_prop->format == MPV_FORMAT_NONE) {
 					std::cout << "Not yet\n";
@@ -437,10 +466,26 @@ void Player::handleEvents()
 
 		}
 	}
-	long float a = (pos / duration) * 1000;
+	int a = (pos / duration) * 1000;
 	progress->setValue(a);
 	//slider->setValue(a);
 	updatelabel();
+
+	if (M::isMouseMoving())
+	{
+		if (!hud)
+			showHud(true);
+		else
+			hiddentimer.restart();
+	}
+	if (hud)
+	{
+		if (hiddentimer.getElapsedTime().asSeconds() >= 5.f)
+		{
+			showHud(false);
+		}
+	}
+	else hiddentimer.restart();
 
 }
 
@@ -458,18 +503,58 @@ void Player::takeScreenShot(std::string path)
 
 void Player::addWidgetstoGui(tgui::Gui& gui)
 {
-	gui.add(progress);
-	gui.add(slider);
-	gui.add(posLabel);
-	gui.add(tbtn);
-	gui.add(qual);
-	gui.add(forward);
-	gui.add(backward);
+	//gui.add(progress);
+	//gui.add(slider);
+	//gui.add(posLabel);
+	//gui.add(tbtn);
+	//gui.add(qual);
+	//gui.add(forward);
+	//gui.add(backward);
+	gui.add(widgets);
 }
 
 long double Player::getPos()
 {
 	return pos;
+}
+
+void Player::setTitle(std::string title)
+{
+	animetitle->setText(title);
+}
+
+void Player::onBackButtonPressed(std::function<void(void)> func)
+{
+	back->onClick(func);
+}
+
+void Player::onDownloadButtonPressed(std::function<void(void)> func)
+{
+	download->onClick(func);
+}
+
+void Player::onSettingsButtonPressed(std::function<void(void)> func)
+{
+	settings->onClick(func);
+}
+
+void Player::onDubButtonPressed(std::function<void(void)> func)
+{
+	dub->onClick(func);
+}
+
+void Player::onSubButtonPressed(std::function<void(void)> func)
+{
+	sub->onClick(func);
+}
+
+void Player::addToPlaylist(std::string url)
+{
+	cmd[0] = "loadfile";
+	cmd[1] = url.c_str();
+	cmd[2] = "append";
+	cmd[3] = NULL;
+	mpv_error_string(mpv_command_async(mpv, 0, cmd));
 }
 
 long double Player::getDuration()
