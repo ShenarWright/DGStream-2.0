@@ -12,10 +12,8 @@
 #include <functional>
 #include <map>
 
-#include <curl/curl.h>
 #include <teemo/teemo.h>
-#define CPPHTTPLIB_OPENSSL_SUPPORT
-#include <httplib.h>
+#include <cpr/cpr.h>
 
 #include <json/json.h>
 

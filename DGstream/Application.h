@@ -7,6 +7,8 @@
 
 #define APD ApiResourceDownloader
 
+void runDownloader();
+
 class Application
 {
 private:
@@ -27,6 +29,8 @@ private:
 
 	Json::Value value;
 
+	Net::Downloader downloader;
+
 	bool playvideo;
 
 	void update();
@@ -39,10 +43,13 @@ private:
 	void loadMainMenu();
 	void displaySearch();
 	void displayAnimeInfo(int count = 0);
+
 public:
 
 	Application();
 	~Application();
 	void run();
+
+	void runDownloader();
 };
 

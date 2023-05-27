@@ -2,14 +2,16 @@
 
 namespace Net
 {
-	std::vector<downloadQueue> Downloader::m_queue;
-	bool Downloader::shouldrun;
-	std::mutex Downloader::m_mutex;
-	//teemo::Teemo Downloader::teemo;
-	std::vector <std::shared_ptr<teemo::Teemo>> Downloader::downloaders;
-	ARD Downloader::ard;
-	ARD Downloader::tempard;
-	bool Downloader::shouldrunArd;
+	//std::vector<downloadQueue> Downloader::m_queue;
+	//bool Downloader::shouldrun;
+	//std::mutex Downloader::m_mutex;
+	////teemo::Teemo Downloader::teemo;
+	//std::vector <std::shared_ptr<teemo::Teemo>> Downloader::downloaders;
+	//ARD Downloader::ard;
+	//ARD Downloader::tempard;
+	//bool Downloader::shouldrunArd;
+	//bool Downloader::shouldrunReq;
+	//std::vector<requestcb> Downloader::requests;
 
 	bool Downloader::Init()
 	{
@@ -17,6 +19,7 @@ namespace Net
 		//teemo.setThreadNum(10);
 		shouldrun = true;
 		shouldrunArd = false;
+		shouldrunReq = false;
 		std::cout << "Downloader succfully Initialized\n";
 		return true;
 	}
@@ -35,10 +38,8 @@ namespace Net
 	{
 		teemo::Teemo::GlobalUnInit();
 
-		//for (auto& e : downloaders)
-		//{
-			//delete e;
-		//}
+		downloaders.clear();
+		requests.clear();
 
 		//succLog("Downloader Successfully DeInitialized");
 		return true;
@@ -50,6 +51,7 @@ namespace Net
 			//std::cout << "HERE\n";
 			downloadres();
 			download();
+			handlerequest();
 		}
 	}
 	bool Downloader::addard(std::string url, std::function<void(Json::Value)> func)
@@ -58,6 +60,16 @@ namespace Net
 		tempard = ARD(url, func);
 		m_mutex.unlock();
 		shouldrunArd = true;
+		return true;
+	}
+	bool Downloader::addRequest(std::string url, std::function<void(Json::Value)> func)
+	{
+		std::cout << "ADDED\n\n\n\n\n\n";
+		m_mutex.lock();
+		requests.push_back({ url,func });
+		m_mutex.unlock();
+		shouldrunReq = true;
+
 		return true;
 	}
 	bool Downloader::download()
@@ -116,6 +128,26 @@ namespace Net
 		return true;
 	}
 
+	bool Downloader::handlerequest()
+	{
+		if (shouldrunReq)
+		{
+			if (requests.size() <= 0)
+			{
+				shouldrunReq = false;
+
+			}
+			else
+			{
+				m_mutex.lock();
+				Net::Https::sendrequestcb(requests.front().url, requests.front().func);
+				requests.erase(requests.begin());
+				m_mutex.unlock();
+			}
+		}
+		return true;
+	}
+
 	downloadQueue createQueue(std::string url, std::string targetpath, std::function<void(teemo::Result res)> result_callback, std::function<void(int64_t total, int64_t downloaded)> progress_callback, std::function<void(int64_t byte_per_secs)> speed_callback)
 	{
 		downloadQueue q;
@@ -126,4 +158,26 @@ namespace Net
 		q.speed_callback = speed_callback;
 		return q;
 	}
+
+
+	Downloader::Downloader()
+	{
+		//std::vector<downloadQueue> Downloader::m_queue;
+		shouldrun = true;
+		//std::mutex Downloader::m_mutex;
+		////teemo::Teemo Downloader::teemo;
+		//std::vector <std::shared_ptr<teemo::Teemo>> Downloader::downloaders;
+		//ARD Downloader::ard;
+		//ARD Downloader::tempard;
+		//bool Downloader::shouldrunArd;
+		//bool Downloader::shouldrunReq;
+		//std::vector<requestcb> Downloader::requests;
+	}
+
+
+	Downloader::~Downloader()
+	{
+
+	}
 }
+

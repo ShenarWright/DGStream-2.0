@@ -37,8 +37,8 @@ private:
 	mpv_render_context* context;
 	mpv_opengl_fbo fbo;
 	const char* cmd[4];
-	mpv_render_param rparams[3];
-	mpv_render_param cparams[3];
+	mpv_render_param rparams[4];
+	mpv_render_param cparams[4];
 	int width, height;
 	bool hasdata;
 	bool paused;
@@ -87,6 +87,7 @@ public:
 	bool hasData();
 	void pause();
 	void play();
+	void stop();
 	bool ispaused();
 	void seek(float offset);
 	void goTo(float position);

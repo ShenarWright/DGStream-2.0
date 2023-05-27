@@ -22,28 +22,28 @@ namespace Net
 
 	void ARD::work()
 	{
-		std::string base, dir;
+		//std::string base, dir;
 		//Net::HttpResponce r = Net::Https::sendrequest(url);
 		
-		if(url.find("3000") != std::string::npos)
-		{
-			//base = url.substr(0, url.find(".org") + 4);
-			base = "http://localhost:3000";//url.substr(0, url.find(".org") + 4);
-			//dir = url.substr(url.find(".org") + 4);
-			dir = url.substr(url.find("3000") + 4);
-			std::cout << base << '\n';
-			std::cout << dir << '\n';
-		}
+		//if(url.find("3000") != std::string::npos)
+		//{
+		//	//base = url.substr(0, url.find(".org") + 4);
+		//	base = "http://localhost:3000";//url.substr(0, url.find(".org") + 4);
+		//	//dir = url.substr(url.find(".org") + 4);
+		//	dir = url.substr(url.find("3000") + 4);
+		//	std::cout << base << '\n';
+		//	std::cout << dir << '\n';
+		//}
 
 		//httplib::Client cli(base);
-		auto res = Net::Https::sendrequest(base,dir);
-		if (res.error() != httplib::Error::Success)
+		auto res = Net::Https::sendrequest(url);
+		if (res.error.code !=cpr::ErrorCode::OK)
 		{
-			std::cout << httplib::to_string(res.error()) << '\n';
+			std::cout << res.error.message<< '\n';
 			return;
 		}
 		//std::cout << res->body << '\n';
-		r.parse(res->body, val);
+		r.parse(res.text, val);
 
 		Json::Value outval = val;
 		//std::cout <<  << '\n';

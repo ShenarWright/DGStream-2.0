@@ -2,38 +2,37 @@
 
 namespace Net
 {
-    httplib::Result Https::sendrequest(std::string base, std::string path)
+    cpr::Response Https::sendrequest(std::string url)
     {
-        httplib::Client cli(base);
-        return cli.Get(path);
+        return cpr::Get(cpr::Url(url));
     }
 
     bool Https::hasInternet()
     {
-        httplib::Client cli("https://google.com");
-        auto res = cli.Get("/search");
-        if (res.error() == httplib::Error::Connection)
+        cpr::Response r = cpr::Get(cpr::Url("https://google.com"));
+
+        if (r.error.code == cpr::ErrorCode::CONNECTION_FAILURE)
         {
-            std::cout << httplib::to_string(res.error()) << '\n';
+            std::cout << r.error.message << '\n';
             return false;
         }
         return true;
     }
 
-    void Https::sendrequestcb(std::string base, std::string path, std::function<void(Json::Value val)> cb)
+    void Https::sendrequestcb(std::string url , std::function<void(Json::Value val)> cb)
     {
-        std::cout << base << ',' << path << '\n';
-        httplib::Client cli(base);
-        auto res = cli.Get(path);
-        if (res.error() != httplib::Error::Success)
+        
+        std::cout << url << '\n';
+        auto res = cpr::Get(cpr::Url(url));
+        if (res.error.code != cpr::ErrorCode::OK)
         {
             std::cout << "Failed\n";
-            std::cout << httplib::to_string(res.error());
+            std::cout << res.error.message << '\n';
             return;
         }
         Json::Value jv;
         Json::Reader r;
-        r.parse(res->body,jv);
+        r.parse(res.text,jv);
         std::cout << jv << '\n';
         cb(jv);
     }

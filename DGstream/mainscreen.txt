@@ -1,0 +1,227 @@
+Picture.REFERENCE {
+    Position = (0, 1);
+    Size = (1920, 1080);
+
+    Renderer {
+        Opacity = 1;
+        Texture = "res/main/SCREEN BACKGROUND.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Button."SEARCH ICON" {
+    Position = (1128, 85);
+    Size = (70, 48);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = "res/main/SEARCH ICON.png" Part(30, 50, 1600, 1080) Smooth;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Picture."FEATURED ANIME COVER" {
+    Position = (276.333, 84.0759);
+    Size = (353.999, 516);
+
+    Renderer {
+        Texture = "res/main/ANIME COVER.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.LOGO {
+    Position = (26, 90);
+    Size = (80, 84);
+
+    Renderer {
+        Texture = "res/main/LOGO.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Label.TITLE {
+    AutoSize = true;
+    Position = (680, 207);
+    Size = (652, 78);
+    Text = "Jujutsu Kaisen (2020)";
+    TextSize = 60;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #FAFDFF70;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+Label.DESCRIPTION {
+    AutoSize = true;
+    Position = (672, 293);
+    Size = (1193, 214);
+    Text = "A boy swallows a cursed talisman - the finger of a demon - and becomes\ncursed himself. He enters a shaman's school to be able \nto locate the demon's other body parts and thus exorcise himself.\n\nCast: Junya Enoki, Yûichi Nakamura, Yuma Uchida, Mitsuo Iwata, Asami Seto,\nJun'ichi Suwabe, Nobunaga Shimazaki, Kenjirô Tsuda, Shigeru Chiba";
+    TextSize = 30;
+
+    Renderer {
+        BorderColor = rgba(240, 240, 240, 215);
+        TextColor = #F8FFFE50;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = rgba(160, 160, 160, 215);
+            ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+            ArrowColor = rgba(200, 200, 200, 215);
+            ArrowColorHover = rgba(225, 225, 225, 215);
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = rgba(185, 185, 185, 215);
+            ThumbColorHover = rgba(195, 195, 195, 215);
+            TrackColor = rgba(160, 160, 160, 215);
+            TrackColorHover = rgba(170, 170, 170, 215);
+        }
+    }
+}
+
+Picture.TRENDING {
+    Position = (95, 583.25);
+    Size = (220, 123.75);
+
+    Renderer {
+        Texture = "res/main/TRENDING.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+ScrollablePanel."TRENDING ScrollablePanel" {
+    ContentSize = (0, 0);
+    Position = (20, 664.665);
+    Size = (1870, 555.333);
+
+    Renderer {
+        BackgroundColor = None;
+        BorderColor = None;
+        TextureBackground = "res/main/RECTANGLE WITH LOW OPACITY.png" Smooth;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+Button.DRAWER {
+    Position = (130, 111);
+    Size = (58, 47);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = "res/main/DRAWER.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+EditBox."SEARCH BAR" {
+    DefaultText = "     Search";
+    Position = (1205, 67);
+    Size = (660, 70.699);
+    TextSize = 25;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        CaretColor = black;
+        CaretWidth = 0;
+        DefaultTextColor = #645A5F;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #F8FCFF3A;
+        TextColorDisabled = #7D7D7D;
+        TextStyle = Italic;
+        Texture = "res/main/SEARCH BAR.png" Part(30, 340, 1870, 230) Smooth;
+        TextureDisabled = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}

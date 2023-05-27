@@ -3,8 +3,8 @@
 #define local
 
 #ifdef local
-	#define consumet "http://localhost:3000"
-	#define gogourl "http://localhost:3000/anime/gogoanime"
+	#define consumet "https://c.delusionz.xyz"
+	#define gogourl "https://c.delusionz.xyz/anime/gogoanime"
 #else
 	#define consumet "https://api.consumet.org"
 	#define gogourl "https://api.consumet.org/anime/gogoanime"

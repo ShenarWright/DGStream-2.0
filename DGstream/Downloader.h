@@ -14,6 +14,12 @@ namespace Net
 		std::function<void(int64_t byte_per_secs)>				 speed_callback;
 	};
 
+	struct requestcb
+	{
+		std::string url;
+		std::function<void(Json::Value v)> func;
+	};
+
 	//Function definition to create a download queue
 	downloadQueue createQueue(
 		std::string url,
@@ -27,24 +33,30 @@ namespace Net
 	class Downloader
 	{
 	public:
-		static bool Init();
-		static bool addToQueue(downloadQueue queue);
-		static bool deInit();
-		static void Run();
-		static bool shouldrun;
-		static bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
+		bool Init();
+		bool addToQueue(downloadQueue queue);
+		bool deInit();
+		void Run();
+		bool shouldrun;
+		bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
+		bool addRequest(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
 	private:
-		static bool download();
-		static bool downloadres();
-		static std::mutex m_mutex;
-		static std::vector<downloadQueue>m_queue;
-		//static teemo::Teemo teemo;
-		static std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
-		//std::vector<std::shared_ptr<teemo::Teemo>> d;
-		static ARD ard;
-		static ARD tempard;
+		bool download();
+		bool downloadres();
+		bool handlerequest();
+		std::mutex m_mutex;
+		std::vector<downloadQueue>m_queue;
+		std::vector<requestcb> requests;
+		std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
+		ARD ard;
+		ARD tempard;
+		bool shouldrunArd;
+		bool shouldrunReq;
 
-		static bool shouldrunArd;
+	public:
+		Downloader();
+		Downloader(Downloader& next);
+		~Downloader();
 	};
 }
 

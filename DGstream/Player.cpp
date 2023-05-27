@@ -2,13 +2,14 @@
 
 void* Player::get_proc_address_mpv(void* unused, const char* name)
 {
-	//std::cout << name << '\n';
+	std::cout << name << '\n';
+	//std::cout << (sf::Context::isExtensionAvailable(name)  ? "True" : "False") << '\n';
 	(void)unused;
 	return ((void*)sf::Context::getFunction(name));
 }
 
-int M::mx;
-int M::my;
+int M::mx = 0;
+int M::my = 0;
 
 void Player::initgui()
 {
@@ -203,6 +204,8 @@ Player::Player(std::string str)
 		return;
 	}
 
+	//mpv = mpv_create_client(mpv, "main");
+
 	mpv_request_log_messages(mpv, "debug");
 	mpv_set_option_string(mpv, "vd-lavc-threads", "4");
 	mpv_set_option_string(mpv, "fbo-format", "rgba8");
@@ -214,21 +217,25 @@ Player::Player(std::string str)
 	int idk = 1;
 	gl_init_params = { &get_proc_address_mpv, nullptr };
 
-	cparams[0] = { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL };
+	cparams[0] = { MPV_RENDER_PARAM_API_TYPE, const_cast<char*>(MPV_RENDER_API_TYPE_OPENGL) };
 	cparams[1] = { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &gl_init_params };
-	cparams[2] = { MPV_RENDER_PARAM_INVALID,NULL };
+	//cparams[] = { MPV_RENDER_PARAM_ADVANCED_CONTROL,&idk };
+	cparams[2] = { MPV_RENDER_PARAM_INVALID,nullptr };
 	//cparams[2] = { MPV_RENDER_PARAM_,NULL };
 
 	context = NULL;
-	if (mpv_render_context_create(&context, mpv, cparams) < 0)
+	int err = 0;
+	if ((err = mpv_render_context_create(&context, mpv, cparams)) < 0)
 	{
+		std::cout << mpv_error_string(err) << '\n';
 		std::cout << "Failed to create context\n";
 		return;
 	}
 
-	
+
 	//init();
 	load(str);
+
 	duration = 0;
 
 }
@@ -257,14 +264,17 @@ Player::Player()
 	int idk = 1;
 	gl_init_params = { &get_proc_address_mpv, nullptr };
 
-	cparams[0] = { MPV_RENDER_PARAM_API_TYPE, (void*)MPV_RENDER_API_TYPE_OPENGL };
+	cparams[0] = { MPV_RENDER_PARAM_API_TYPE, const_cast<char*>(MPV_RENDER_API_TYPE_OPENGL) };
 	cparams[1] = { MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &gl_init_params };
-	cparams[2] = { MPV_RENDER_PARAM_INVALID,NULL };
+	//cparams[2] = { MPV_RENDER_PARAM_ADVANCED_CONTROL,&idk };
+	cparams[2] = { MPV_RENDER_PARAM_INVALID, nullptr };
 
 	context = NULL;
-	if (mpv_render_context_create(&context, mpv, cparams) < 0)
+	int err = 0;
+	if ((err = mpv_render_context_create(&context, mpv, cparams)) < 0)
 	{
 		std::cout << "Failed to create context\n";
+		std::cout << mpv_error_string(err) << '\n';
 		return;
 	}
 
@@ -285,9 +295,9 @@ void Player::render()
 	{
 		void* data = NULL;
 		mpv_render_context_set_update_callback(context, [](void* data) {}, data);
-		int arr[2] = { width,height };
+		//int arr[2] = { width,height };
 
-		mpv_opengl_fbo fbo = { 0,width,height,1 };
+			mpv_opengl_fbo fbo = { 0,width,height,0 };
 		//fbo.fbo = 0;
 		//fbo.w = 800;
 		//fbo.h = 640;
@@ -357,6 +367,14 @@ void Player::play()
 	paused = false;
 	tbtn->setDown(false);
 
+}
+
+void Player::stop()
+{
+	cmd[0] = "stop";
+	cmd[1] = NULL;
+
+	mpv_command_async(mpv, 0, cmd);
 }
 
 bool Player::ispaused()

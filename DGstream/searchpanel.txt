@@ -1,40 +1,123 @@
-EditBox.searchbar {
-    Position = (1070, 10);
-    Size = (840, 69.8);
+Picture.template {
+    Size = (1920, 1080);
+
+    Renderer {
+        Texture = "res/search/BACKGROUND IMAGE.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture."SCROLL PANEL BACKGROUND" {
+    Position = (50, 230);
+    Size = (1823, 882);
+
+    Renderer {
+        Texture = "res/search/SCROLLABLE PANEL.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Button."SEARCH BUTTON" {
+    Position = (510, 80);
+    Size = (59, 59);
     TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #FDFFF4;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = #7EB0FF;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = "res/search/SEARCH ICON.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "res/search/SEARCH ICON.png" Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = "res/search/SEARCH ICON PRESSED.png" Smooth;
+    }
+}
+
+EditBox."SEARCH BAR" {
+    Alignment = Center;
+    DefaultText = Search;
+    Position = (581, 74);
+    Size = (760, 71);
+    TextSize = 32;
 
     Renderer {
         BackgroundColor = #F5F5F5;
         BackgroundColorDisabled = #E6E6E6;
         BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D5A;
+        BorderColorHover = #0000001E;
+        Borders = (0, 0, 0, 0);
+        CaretColor = #FFFFFF6F;
+        CaretWidth = 3;
+        DefaultTextColor = #F8FFF5;
+        DefaultTextStyle = Italic;
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
         SelectedTextColor = white;
-        TextColor = #3C3C3C;
+        TextColor = #FFFFFFF7;
         TextColorDisabled = #7D7D7D;
-        Texture = None;
+        TextStyle = Italic;
+        Texture = "res/search/SEARCH BAR.png" Smooth;
         TextureDisabled = None;
         TextureFocused = None;
         TextureHover = None;
     }
 }
 
-ScrollablePanel.panel {
-    ContentSize = (0, 0);
-    Position = (40, 210);
-    Size = (1840, 800);
+Button."FILTER BY BUTTON" {
+    Position = (1477, 93);
+    Size = (189, 39);
+    TextSize = 13;
 
     Renderer {
-        BackgroundColor = white;
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C00;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = "res/search/FILTER BY BUTTON.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "res/search/FILTER BY BUTTON.png" Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = "res/search/FILTER BY BUTTON HOVER.png" Smooth;
+    }
+}
+
+ScrollablePanel."BROWSE PANEL" {
+    ContentSize = (0, 0);
+    Position = (51, 229);
+    Size = (1850, 900);
+
+    Renderer {
+        BackgroundColor = #FFFFFF00;
         BorderColor = black;
-        TextureBackground = None;
+        TextureBackground = "res/search/SCROLLABLE PANEL.png" Smooth;
 
         Scrollbar {
             ArrowBackgroundColor = #F5F5F5;
@@ -56,33 +139,27 @@ ScrollablePanel.panel {
     }
 }
 
-Button.back {
-    Position = (20, 20);
-    Size = (89, 31.678);
-    Text = back;
+Button."BACK BUTTON" {
+    Position = (78.9573, 30);
+    Size = (100.043, 101);
+    Text = Button;
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
-        Texture = None;
+        BackgroundColor = rgba(180, 180, 180, 215);
+        BackgroundColorDown = rgba(150, 150, 150, 215);
+        BackgroundColorHover = rgba(190, 190, 190, 215);
+        BorderColor = #F0F0F000;
+        Borders = (0, 0, 0, 0);
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorDown = rgba(255, 255, 255, 235);
+        TextColorHover = rgba(255, 255, 255, 235);
+        Texture = "res/search/BACK BUTTON.png" Smooth;
         TextureDisabled = None;
-        TextureDown = None;
+        TextureDown = "res/search/BACK BUTTON PRESSED.png" Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
         TextureFocused = None;
-        TextureHover = None;
+        TextureHover = "res/search/BACK BUTTON HOVER.png" Smooth;
     }
 }
