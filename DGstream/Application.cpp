@@ -2,6 +2,31 @@
 
 void Application::update()
 {
+	if (playvideo)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			player->pause();
+			sf::sleep(sf::seconds(.2f));
+			if (!player->isHudshown())
+				player->showHud(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			player->seek(5);
+			sf::sleep(sf::seconds(.2f));
+			if (!player->isHudshown())
+				player->showHud(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			player->seek(-5);
+			sf::sleep(sf::seconds(.2f));
+			if (!player->isHudshown())
+				player->showHud(true);
+		}
+
+	}
 
 }
 
@@ -36,6 +61,9 @@ void Application::handleEvents()
 	while (window.pollEvent(ev))
 	{
 		if (ev.type == sf::Event::Closed)
+			window.close();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			window.close();
 		
 		gui.handleEvent(ev);
@@ -72,8 +100,8 @@ void Application::playVideo(std::string url)
 
 void Application::initWindow()
 {
-	window.create(sf::VideoMode(sf::VideoMode::getDesktopMode()), "DGStream",sf::Style::Default);
-	window.setFramerateLimit(30);
+	window.create(sf::VideoMode::getDesktopMode(), "DGStream",sf::Style::Default);
+	window.setVerticalSyncEnabled(true);
 	window.setPosition(sf::Vector2i(0, 0));
 }
 
@@ -143,7 +171,7 @@ void Application::loadMainMenu()
 
 						displayAnimeInfo(count);
 					}
-				);
+		);
 			}, i
 		);
 
@@ -152,6 +180,7 @@ void Application::loadMainMenu()
 		label->setTextSize(24);
 		label->setScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 		label->setSize(204, label->getSize().y);
+		label->getRenderer()->setTextColor(tgui::Color::White);
 		scrollbar->add(pic);
 		scrollbar->add(label);
 		//scrollbar->getRenderer()->setTextureBackground("C:\\Users\\dante\\OneDrive\\Pictures\\Untitled.png");
@@ -272,6 +301,7 @@ void Application::displaySearch()
 	}, searchbar);
 
 	auto scrollbar = searchpanel->get<tgui::ScrollablePanel>("BROWSE PANEL");
+	scrollbar->getRenderer()->setScrollbarWidth(0.1f);
 	int x = 0, y = 0;
 	for (unsigned int i = 0; i < val["results"].size(); i++)
 	{
@@ -289,6 +319,8 @@ void Application::displaySearch()
 		label->setPosition(p->getPosition().x, p->getPosition().y + p->getSize().y);
 		label->setTextSize(36);
 		label->setHorizontalAlignment(tgui::Label::HorizontalAlignment::Center);
+		label->getRenderer()->setTextColor(tgui::Color::White);
+
 		std::cout << "pic X:" << p->getPosition().x << ", pic Y:" << p->getPosition().y << '\n';
 		std::cout << "label X:" << label->getPosition().x << ", lavel Y:" << label->getPosition().y << '\n';
 
@@ -320,6 +352,7 @@ void Application::displaySearch()
 	auto back = searchpanel->get<tgui::Button>("BACK BUTTON");
 	back->onClick([&]()
 		{
+			jsons.erase("search");
 			loadMainMenu();
 		}
 	);
@@ -398,7 +431,7 @@ void Application::displayAnimeInfo(int count)
 {
 	mutex.lock();
 	gui.removeAllWidgets();
-	//textures.clear();
+	textures.clear();
 	animeInfo = tgui::Group::create();
 
 	try
@@ -410,10 +443,167 @@ void Application::displayAnimeInfo(int count)
 		std::cout << e.what() << '\n';
 	}
 	gui.add(animeInfo);
+	auto val = jsons["animeInfo"];
+	val["image"] = "res/img/" + val["id"].asString() + ".png";
+	textures.push_back(std::make_shared<sf::Texture>());
+	textures.back()->loadFromFile(val["image"].asString());
+	auto pic = animeInfo->get<tgui::Picture>("ANIME COVER");
+	pic->getRenderer()->setTexture(*textures.back());
+
+	auto title = animeInfo->get<tgui::Label>("ANIME TITLE");
+	title->setText(val["title"].asString());
+	title->setScrollbarPolicy(tgui::Scrollbar::Policy::Automatic);
+	title->getRenderer()->setScrollbarWidth(0.1f);
+
+	auto status = animeInfo->get<tgui::Label>("STATUS");
+	status->setText(val["status"].asString());
+
+	auto released = animeInfo->get<tgui::Label>("YEAR OF RELEASE");
+	released->setText(val["releaseDate"].asString());
+
+	auto episodebtn = animeInfo->get<tgui::Button>("EPISODE BUTTON");
+	auto episodelabel = animeInfo->get<tgui::Label>("Label1");
+	auto downloadbtn = animeInfo->get<tgui::Button>("EPISODE DOWNLOAD BUTTON");
+
+	auto scrollpanel = animeInfo->get<tgui::ScrollablePanel>("EPISODES ScrollablePanel");
+	scrollpanel->getRenderer()->setScrollbarWidth(0.1f);
+	int x = 0, y = 0;
+
+	for (int i = 0; i < val["totalEpisodes"].asInt(); i++)
+	{
+		auto btn = tgui::Button::copy(episodebtn);
+		auto eplabel = tgui::Label::copy(episodelabel);
+		auto dbtn = tgui::Button::copy(downloadbtn);
+		std::stringstream ss;
+
+		btn->setVisible(true);
+		dbtn->setVisible(true);
+		eplabel->setVisible(true);
+
+		btn->setPosition(30 + (x * 230), 122 + (y * 107));
+		eplabel->setPosition(30 + (x * 230), 122 + (y *  107));
+		dbtn->setPosition(btn->getPosition().x + 173, btn->getPosition().y + 18);
+		ss << "ep. " << (i + 1);
+		eplabel->setText(ss.str());
+		scrollpanel->add(eplabel);
+		scrollpanel->add(btn);
+		scrollpanel->add(dbtn);
+
+		btn->onClick([&](int a)
+		{
+				downloader.addRequest(consumet gogo watch + jsons["animeInfo"]["episodes"][a]["id"].asString() + server gogocdn, [&](Json::Value newvalue)
+				{
+					playVideo(newvalue["sources"][2]["url"].asString());
+				});
+				if (jsons["animeInfo"]["episodes"] > 1)
+				{
+					int max = 0;
+					if (a + 10 > jsons["animeInfo"]["episodes"].size())
+					{
+						max = jsons["animeInfo"]["episodes"].size() - a;
+					}
+					else
+						max = a + 10;
+
+					std::vector<Net::requestCb>requests;
+					for (int i = a + 1; i < max; i++)
+					{
+						std::string url = consumet gogo watch + jsons["animeInfo"]["episodes"][i]["id"].asString() + server gogocdn;
+						std::function<void(Json::Value)> func = [&](Json::Value newvalue)
+						{
+							player->addToPlaylist(newvalue["sources"][2]["url"].asString());
+						};
+						
+						requests.push_back(Net::createrequests(url,func));
+					}
+
+					downloader.addRequests(requests);
+
+				}
+		}, i);
+
+		x++;
+		if ((((i + 1) % 5) == 0) && i != 0)
+		{
+			x = 0;
+			y++;
+		}
+
+	}
+
+	auto back = animeInfo->get<tgui::Button>("BACK BUTTON");
+	back->onClick([&]()
+		{
+			try
+			{
+				if (jsons.find("search") != jsons.end())
+					displaySearch();
+				else
+					loadMainMenu();
+
+			}
+			catch (std::exception e)
+			{
+				std::cout << e.what() << '\n';
+			}
+
+			
+		}
+	);
+
+	auto play = animeInfo->get<tgui::Button>("PLAY BUTTON");
+	play->onPress([&]()
+		{
+			try 
+			{
+			downloader.addRequest(consumet gogo watch + jsons["animeInfo"]["episodes"][0]["id"].asString() + server gogocdn, [&](Json::Value newvalue)
+				{
+					std::cout << newvalue << '\n';
+
+					playVideo(newvalue["sources"][2]["url"].asString());
+				});
+
+			}
+			catch (Json::Exception e)
+			{
+				std::cout << e.what() << '\n';
+			}
+			
+			int max = 0;
+			if (10 > jsons["animeInfo"]["episodes"].size())
+			{
+				max = jsons["animeInfo"]["episodes"].size();
+			}
+			else
+				max = 10;
+
+			std::vector<Net::requestCb>requests;
+			for (int i =  1; i < max; i++)
+			{
+				std::string url = consumet gogo watch + jsons["animeInfo"]["episodes"][i]["id"].asString() + server gogocdn;
+				std::function<void(Json::Value)> func = [&](Json::Value newvalue)
+				{
+					player->addToPlaylist(newvalue["sources"][2]["url"].asString());
+				};
+
+				requests.push_back(Net::createrequests(url, func));
+			}
+
+			downloader.addRequests(requests);
+		}
+	);
+
+	auto description = animeInfo->get<tgui::Label>("DESCRIPTION");
+	description->setText(val["description"].asString());
+	description->setScrollbarPolicy(tgui::Scrollbar::Policy::Automatic);
+	description->getRenderer()->setScrollbarWidth(0.1f);
+
+	auto totalepisodes = animeInfo->get<tgui::Label>("AMOUNT OF EPISODES");
+	totalepisodes->setText(val["totalEpisodes"].asString());
+
 	/*
 	textures.push_back(std::make_shared<sf::Texture>());
 	Json::Value val = jsons["animeInfo"];
-	val["image"] = "res/img/" + val["id"].asString() + ".png";
 	textures.back()->loadFromFile(val["image"].asString());
 	animeInfo = tgui::Group::create();
 	animeInfo->loadWidgetsFromFile("animeinfo.txt");
@@ -423,7 +613,7 @@ void Application::displayAnimeInfo(int count)
 	auto label = animeInfo->get<tgui::Label>("Description");
 	auto name = animeInfo->get<tgui::Label>("Name");
 	auto back = animeInfo->get<tgui::Button>("back");
-	auto play = animeInfo->get<tgui::Button>("play");
+	auto play = animeInf"o->get<tgui::Button>("play");
 	auto btn1 = animeInfo->get<tgui::Button>("download");
 
 	play->onClick([&](Json::Value v)

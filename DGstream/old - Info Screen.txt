@@ -21,6 +21,24 @@ Renderer.2 {
     TransparentTexture = false;
 }
 
+Renderer.3 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = white;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
 Picture.REFERENCE {
     Size = (1920, 1080);
 
@@ -485,6 +503,67 @@ ScrollablePanel."EPISODES ScrollablePanel" {
         }
     }
 
+    Label.Label5 {
+        HorizontalAlignment = Center;
+        Position = (960, 121);
+        ScrollbarPolicy = Never;
+        Size = (165, 79);
+        Text = "EP.1";
+        TextSize = 38;
+        VerticalAlignment = Center;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = white;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.Label4 {
+        HorizontalAlignment = Center;
+        Position = (728, 121);
+        Renderer = &3;
+        ScrollbarPolicy = Never;
+        Size = (165, 79);
+        Text = "EP.1";
+        TextSize = 38;
+        VerticalAlignment = Center;
+    }
+
+    Label.Label3 {
+        HorizontalAlignment = Center;
+        Position = (496, 121);
+        Renderer = &3;
+        ScrollbarPolicy = Never;
+        Size = (165, 79);
+        Text = "EP.1";
+        TextSize = 38;
+        VerticalAlignment = Center;
+    }
+
+    Label.Label2 {
+        HorizontalAlignment = Center;
+        Position = (260, 121);
+        Renderer = &3;
+        ScrollbarPolicy = Never;
+        Size = (165, 79);
+        Text = "EP.1";
+        TextSize = 38;
+        VerticalAlignment = Center;
+    }
+
     Label.Label1 {
         HorizontalAlignment = Center;
         Position = (30, 121);
@@ -493,7 +572,6 @@ ScrollablePanel."EPISODES ScrollablePanel" {
         Text = "EP.1";
         TextSize = 38;
         VerticalAlignment = Center;
-        Visible = false;
 
         Renderer {
             BackgroundColor = transparent;
@@ -529,7 +607,6 @@ ScrollablePanel."EPISODES ScrollablePanel" {
         Size = (209, 77);
         TextSize = 36;
         UserData = "";
-        Visible = false;
 
         Renderer {
             BackgroundColor = white;
@@ -560,7 +637,246 @@ ScrollablePanel."EPISODES ScrollablePanel" {
         Position = (203, 140);
         Size = (29, 51);
         TextSize = 13;
-        Visible = false;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/DOWNLOAD ARROW BUTTON.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/DOWNLOAD BUTTON ARROW PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.Button1 {
+        Position = (260, 122);
+        Size = (209, 77);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/EPISODE BOX.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/EPISODE BOX PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "res/animeinfo/EPISODE BOX HOVER.png" Smooth;
+        }
+    }
+
+    Button.Button2 {
+        Position = (496, 122);
+        Size = (209, 77);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/EPISODE BOX.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/EPISODE BOX PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "res/animeinfo/EPISODE BOX HOVER.png" Smooth;
+        }
+    }
+
+    Button.Button3 {
+        Position = (727, 122);
+        Size = (209, 77);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/EPISODE BOX.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/EPISODE BOX PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "res/animeinfo/EPISODE BOX HOVER.png" Smooth;
+        }
+    }
+
+    Button.Button4 {
+        Position = (960, 122);
+        Size = (209, 77);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/EPISODE BOX.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/EPISODE BOX PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "res/animeinfo/EPISODE BOX HOVER.png" Smooth;
+        }
+    }
+
+    Button.Button5 {
+        Position = (433, 140);
+        Size = (29, 51);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/DOWNLOAD ARROW BUTTON.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/DOWNLOAD BUTTON ARROW PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.Button6 {
+        Position = (669, 140);
+        Size = (29, 51);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/DOWNLOAD ARROW BUTTON.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/DOWNLOAD BUTTON ARROW PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.Button7 {
+        Position = (899, 140);
+        Size = (29, 51);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C00;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = "res/animeinfo/DOWNLOAD ARROW BUTTON.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = "res/animeinfo/DOWNLOAD BUTTON ARROW PRESSED.png" Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.Button8 {
+        Position = (1132, 140);
+        Size = (29, 51);
+        TextSize = 13;
 
         Renderer {
             BackgroundColor = #F5F5F5;

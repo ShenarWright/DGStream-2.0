@@ -14,11 +14,23 @@ namespace Net
 		std::function<void(int64_t byte_per_secs)>				 speed_callback;
 	};
 
-	struct requestcb
+	struct requestCb
 	{
+		requestCb(std::string url, std::function<void(Json::Value)>func)
+		{
+			this->url = url;
+			this->func = func;
+		}
+
+		requestCb()
+		{
+
+		}
 		std::string url;
-		std::function<void(Json::Value v)> func;
+		std::function<void(Json::Value)> func;
 	};
+
+	requestCb createrequests(std::string url,std::function<void(Json::Value)> func);
 
 	//Function definition to create a download queue
 	downloadQueue createQueue(
@@ -40,13 +52,14 @@ namespace Net
 		bool shouldrun;
 		bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
 		bool addRequest(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
+		bool addRequests(std::vector <requestCb>requests);
 	private:
 		bool download();
 		bool downloadres();
 		bool handlerequest();
 		std::mutex m_mutex;
 		std::vector<downloadQueue>m_queue;
-		std::vector<requestcb> requests;
+		std::vector<requestCb> requests;
 		std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
 		ARD ard;
 		ARD tempard;

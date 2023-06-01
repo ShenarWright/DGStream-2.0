@@ -13,7 +13,7 @@ int M::my = 0;
 
 void Player::initgui()
 {
-	hud = false;
+	//hud = false;
 	widgets = tgui::Group::create();
 	widgets->loadWidgetsFromFile("player.txt");
 
@@ -36,7 +36,7 @@ void Player::initgui()
 	animetitle = widgets->get<tgui::Label>("ANIME TITLE");
 	slider->setPosition(progress->getPosition());
 	slider->setSize(progress->getSize());
-	slider->getRenderer()->setOpacity(0.1f);
+	slider->getRenderer()->setOpacity(0.f);
 	widgets->add(slider);
 	slider->setMaximum(1000);
 	progress->setMaximum(1000);
@@ -56,7 +56,6 @@ void Player::initgui()
 		cmd[2] = NULL;
 		mpv_command_async(mpv, 0, cmd);
 		});
-	showHud(true);
 }
 
 void Player::updateSize()
@@ -146,45 +145,49 @@ void Player::updatelabel()
 void Player::showHud(bool show)
 {
 	hud = show;
-	std::cout << "HUD\n";
-	if (hud)
+	if (!progress->isAnimationPlaying())
 	{
-		progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-		back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-		animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-		fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-		background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+		if (hud)
+		{
+			std::cout << "HUD\n";
+			progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+			back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+			animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+			fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+			background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+		}
+		else
+		{
+			progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+			back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+			animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+			fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+			background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+		}
 	}
-	else
-	{
-		progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-		back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-		animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-		fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-		background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-	}
+	hiddentimer.restart();
 }
 
 bool Player::isHudshown()
@@ -330,6 +333,8 @@ void Player::load(std::string str)
 
 	mpv_command_async(mpv, 0, cmd);
 	hasdata = true;
+	showHud(true);
+	hiddentimer.restart();
 }
 
 void Player::setSize(int x, int y)
@@ -384,6 +389,7 @@ bool Player::ispaused()
 
 void Player::seek(float offset)
 {
+	hiddentimer.restart();
 	std::stringstream ss;
 	std::string s;
 	ss << offset;
@@ -397,6 +403,7 @@ void Player::seek(float offset)
 
 void Player::goTo(float position)
 {
+	hiddentimer.restart();
 	std::stringstream ss;
 	std::string s;
 	ss << position;
@@ -410,6 +417,7 @@ void Player::goTo(float position)
 
 void Player::goTop(float percent)
 {
+	hiddentimer.restart();
 	std::stringstream ss;
 	std::string s;
 	ss << percent;
@@ -489,21 +497,24 @@ void Player::handleEvents()
 	//slider->setValue(a);
 	updatelabel();
 
+	if (hiddentimer.getElapsedTime().asSeconds() >= 5.f)
+	{
+		if(hud)
+			showHud(false);
+		//std::cout << "CALLED\n";
+		hiddentimer.restart();	
+	}
 	if (M::isMouseMoving())
 	{
 		if (!hud)
-			showHud(true);
-		else
-			hiddentimer.restart();
-	}
-	if (hud)
-	{
-		if (hiddentimer.getElapsedTime().asSeconds() >= 5.f)
 		{
-			showHud(false);
+			showHud(true);
 		}
+		hiddentimer.restart();
 	}
-	else hiddentimer.restart();
+
+	//std::cout << (hud ? "True" : "False") << "\n";
+	//else hiddentimer.restart();
 
 }
 

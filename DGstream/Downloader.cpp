@@ -66,11 +66,22 @@ namespace Net
 	{
 		std::cout << "ADDED\n\n\n\n\n\n";
 		m_mutex.lock();
-		requests.push_back({ url,func });
+		requests.push_back(createrequests(url,func));
 		m_mutex.unlock();
 		shouldrunReq = true;
 
 		return true;
+	}
+	bool Downloader::addRequests(std::vector<requestCb> requests)
+	{
+		m_mutex.lock();
+		for (auto& e : requests)
+		{
+			this->requests.push_back(e);
+		}
+		m_mutex.unlock();
+		shouldrunReq = true;
+		return false;
 	}
 	bool Downloader::download()
 	{
@@ -146,6 +157,14 @@ namespace Net
 			}
 		}
 		return true;
+	}
+
+	requestCb createrequests(std::string url, std::function<void(Json::Value)> func)
+	{
+		requestCb cb;
+		cb.url = url;
+		cb.func = func;
+		return cb;
 	}
 
 	downloadQueue createQueue(std::string url, std::string targetpath, std::function<void(teemo::Result res)> result_callback, std::function<void(int64_t total, int64_t downloaded)> progress_callback, std::function<void(int64_t byte_per_secs)> speed_callback)
