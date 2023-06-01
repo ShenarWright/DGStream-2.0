@@ -7,7 +7,6 @@
 
 #define APD ApiResourceDownloader
 
-void runDownloader();
 
 class Application
 {

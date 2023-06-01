@@ -66,6 +66,9 @@ void Application::handleEvents()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			window.close();
 		
+		if (ev.type == sf::Event::Resized)
+			initGui();
+
 		gui.handleEvent(ev);
 	}
 	if (playvideo)
@@ -100,7 +103,7 @@ void Application::playVideo(std::string url)
 
 void Application::initWindow()
 {
-	window.create(sf::VideoMode::getDesktopMode(), "DGStream",sf::Style::Default);
+	window.create(sf::VideoMode(1600,900), "DGStream",sf::Style::Default);
 	window.setVerticalSyncEnabled(true);
 	window.setPosition(sf::Vector2i(0, 0));
 }
@@ -108,6 +111,7 @@ void Application::initWindow()
 void Application::initGui()
 {
 	gui.setTarget(window);
+	gui.setRelativeView({ 0,0,1920.f / (float)window.getSize().x,1080.f / (float)window.getSize().y});
 }
 
 void Application::loadMainMenu()
