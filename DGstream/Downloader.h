@@ -51,8 +51,8 @@ namespace Net
 		void Run();
 		bool shouldrun;
 		bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
-		bool addRequest(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
-		bool addRequests(std::vector <requestCb>requests);
+		bool addRequest(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {}, bool startrequest = true);
+		bool addRequests(std::vector <requestCb>requests,bool startrequest = true);
 	private:
 		bool download();
 		bool downloadres();

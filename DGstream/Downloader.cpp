@@ -62,17 +62,17 @@ namespace Net
 		shouldrunArd = true;
 		return true;
 	}
-	bool Downloader::addRequest(std::string url, std::function<void(Json::Value)> func)
+	bool Downloader::addRequest(std::string url, std::function<void(Json::Value)> func, bool startrequest)
 	{
 		std::cout << "ADDED\n\n\n\n\n\n";
 		m_mutex.lock();
 		requests.push_back(createrequests(url,func));
 		m_mutex.unlock();
-		shouldrunReq = true;
+		shouldrunReq = startrequest;
 
 		return true;
 	}
-	bool Downloader::addRequests(std::vector<requestCb> requests)
+	bool Downloader::addRequests(std::vector<requestCb> requests, bool startrequest)
 	{
 		m_mutex.lock();
 		for (auto& e : requests)
@@ -80,7 +80,7 @@ namespace Net
 			this->requests.push_back(e);
 		}
 		m_mutex.unlock();
-		shouldrunReq = true;
+		shouldrunReq = startrequest;
 		return false;
 	}
 	bool Downloader::download()
