@@ -63,13 +63,24 @@ void Application::handleEvents()
 	while (window.pollEvent(ev))
 	{
 		if (ev.type == sf::Event::Closed)
+		{
+			player->stop();
+			playvideo = false;
+			gui.removeAllWidgets();
 			window.close();
+		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			player->stop();
+			playvideo = false;
+			gui.removeAllWidgets();
 			window.close();
+		}
 		
 		if (ev.type == sf::Event::Resized)
 			initGui();
+
 
 		gui.handleEvent(ev);
 	}
@@ -86,6 +97,19 @@ void Application::playVideo(std::string url)
 	player->addWidgetstoGui(gui);
 	playvideo = true;
 	player->setTitle(jsons["animeInfo"]["title"].asString());
+
+	player->onNextButtonPressed([&]()
+		{
+
+		}
+	);
+
+	player->onPreviousButtonPressed([&]()
+		{
+
+		}
+	);
+
 	player->onBackButtonPressed([&]()
 		{
 			player->stop();
@@ -131,7 +155,12 @@ void Application::initWindow()
 	}
 	else
 	{
-		window.create(sf::VideoMode(v["windowsize"][0].asInt(), v["windowsize"][1].asInt()), "DGStream", sf::Style::Default);
+		if (v["windowsize"][0].asInt() > sf::VideoMode::getDesktopMode().width)
+		{
+			window.create(sf::VideoMode::getDesktopMode(),"DGStream");
+		}
+		else
+			window.create(sf::VideoMode(v["windowsize"][0].asInt(), v["windowsize"][1].asInt()), "DGStream", sf::Style::Default);
 	}
 
 	if (v["Vsync"].asBool())
@@ -249,6 +278,8 @@ void Application::displaySearch()
 	std::cout << jsons["search"] << '\n';
 	
 	gui.add(searchpanel);
+
+	
 	//searchpanel->showWithEffect(tgui::ShowAnimationType::SlideFromTop,1000);
 	Json::Value val = jsons["search"];
 
@@ -407,12 +438,12 @@ void Application::displayAnimeInfo(int count)
 				if (jsons["animeInfo"]["episodes"] > 1)
 				{
 					int max = 0;
-					if (a + 10 > jsons["animeInfo"]["episodes"].size())
+					if (a + 1 > jsons["animeInfo"]["episodes"].size())
 					{
 						max = jsons["animeInfo"]["episodes"].size() - a;
 					}
 					else
-						max = a + 10;
+						max = a + 1;
 
 					std::vector<Net::requestCb>requests;
 					for (int i = a + 1; i < max; i++)
@@ -486,12 +517,12 @@ void Application::displayAnimeInfo(int count)
 			}
 			
 			int max = 0;
-			if (10 > jsons["animeInfo"]["episodes"].size())
+			if (1 > jsons["animeInfo"]["episodes"].size())
 			{
 				max = jsons["animeInfo"]["episodes"].size();
 			}
 			else
-				max = 10;
+				max = 1;
 
 			std::vector<Net::requestCb>requests;
 			for (int i =  1; i < max; i++)
@@ -532,19 +563,24 @@ Application::Application()
 	this->downloadthread = std::thread([&] {runDownloader(); });
 	playvideo = false;
 
-	
-	initWindow();
-	initGui();
-
 	if (Net::Https::hasInternet())
 	{
-		downloader.addard(gogourl topairing, [&](Json::Value val) 
+		downloader.addard(gogourl recent, [&](Json::Value val) 
 		{
 			std::cout << val << '\n';
 			jsons.insert({ "top-airing",val });
 			loadMainMenu(); 
 		});
 	}
+	
+	initWindow();
+	initGui();
+
+	tgui::Picture::Ptr pic = tgui::Picture::create("res/LOGO.png");
+	pic->setPosition("50% - 175", "50% - 175");
+	pic->setSize(350, 350);
+	//pic->setPosition(pic->getPosition().x - pic->getSize().x, pic->getPosition().y - pic->getSize().y);
+	gui.add(pic);
 	//else
 	//	loadMainMenu();
 		//loadMainMenu();

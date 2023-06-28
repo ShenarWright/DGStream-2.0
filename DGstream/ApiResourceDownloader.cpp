@@ -96,7 +96,6 @@ namespace Net
 		//{
 			//std::cout << e["image"] << '\n';
 		//}
-
 		this->callback(outval);
 	}
 }

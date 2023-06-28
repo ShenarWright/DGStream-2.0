@@ -43,19 +43,19 @@ void Player::initgui()
 	tbtn->onClick([&]() {ispaused() ? play() : pause();  });
 	slider->onValueChange([&]() {goTop(slider->getValue() / 10); });
 	//
-	forward->onClick([&]() {
+	/*forward->onClick([&]() {
 		cmd[0] = "playlist-next";
-		cmd[1] = "force";
-		cmd[2] = NULL;
+		//cmd[1] = "force";
+		cmd[1] = NULL;
 		mpv_command_async(mpv, 0, cmd);
 
 		});
 	backward->onClick([&]() {
 		cmd[0] = "playlist-prev";
-		cmd[1] = "force";
-		cmd[2] = NULL;
+		//cmd[1] = "force";
+		cmd[1] = NULL;
 		mpv_command_async(mpv, 0, cmd);
-		});
+		});*/
 }
 
 void Player::updateSize()
@@ -144,47 +144,53 @@ void Player::updatelabel()
 
 void Player::showHud(bool show)
 {
-	hud = show;
 	if (!progress->isAnimationPlaying())
 	{
+		hud = show;
 		if (hud)
 		{
-			std::cout << "HUD\n";
-			progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-			back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-			animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-			fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-			background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+			if (!progress->isVisible())
+			{
+				progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+				animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+				fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+				background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+			}
+			//std::cout << "HUD\n";
 		}
 		else
 		{
-			progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-			back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-			animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-			fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-			background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+			if (progress->isVisible())
+			{
+				progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+				animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+				fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+				background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+			}
 		}
 	}
 	hiddentimer.restart();
@@ -487,8 +493,21 @@ void Player::handleEvents()
 					std::cout << "Not yet\n";
 				}
 			}
+			
 		}
 		break;
+		case MPV_EVENT_LOG_MESSAGE:
+			mpv_event_log_message* msg = (mpv_event_log_message*)event->data;
+			std::fstream fs;
+			fs.open("config/logs.txt",std::ios_base::app);
+			if (fs.is_open())
+			{
+				std::cout << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " <<msg->text << '\n';
+				fs << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " << msg->text;
+
+			}
+			fs.close();
+			break;
 
 		}
 	}
@@ -512,6 +531,7 @@ void Player::handleEvents()
 		}
 		hiddentimer.restart();
 	}
+	hud = progress->isVisible();
 
 	//std::cout << (hud ? "True" : "False") << "\n";
 	//else hiddentimer.restart();
@@ -571,6 +591,18 @@ void Player::onDubButtonPressed(std::function<void(void)> func)
 {
 	dub->onClick(func);
 }
+
+void Player::onNextButtonPressed(std::function<void(void)> func)
+{
+	forward->onClick(func);
+}
+
+void Player::onPreviousButtonPressed(std::function<void(void)> func)
+{
+	backward->onClick(func);
+}
+
+
 
 void Player::onSubButtonPressed(std::function<void(void)> func)
 {

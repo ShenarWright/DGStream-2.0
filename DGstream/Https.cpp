@@ -9,7 +9,7 @@ namespace Net
 
     bool Https::hasInternet()
     {
-        cpr::Response r = cpr::Get(cpr::Url("https://google.com"));
+        cpr::Response r = cpr::Get(cpr::Url("https://google.com"),cpr::Timeout(1000));
 
         if (r.error.code == cpr::ErrorCode::CONNECTION_FAILURE)
         {

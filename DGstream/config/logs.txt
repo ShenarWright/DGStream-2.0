@@ -1,0 +1,670 @@
+#DGSTREAM LOGSPrefix:cplayer /LEVEL/ v /MESSAGE/ Waiting for scripts...
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Setting option 'vd-lavc-threads' = "4" (flags = 0) -> 0
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Setting option 'fbo-format' = "rgba8" (flags = 0) -> 0
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Setting option 'opengl-pbo' = "yes" (flags = 0) -> 0
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Setting option 'audio-channels' = "stereo" (flags = 0) -> 0
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ GL_VERSION='4.6.0 - Build 30.0.101.3111'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Detected desktop OpenGL 4.6.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ GL_VENDOR='Intel'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ GL_RENDERER='Intel(R) UHD Graphics 620'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ GL_SHADING_LANGUAGE_VERSION='4.60 - Build 30.0.101.3111'
+Prefix:auto_profiles /LEVEL/ debug /MESSAGE/ loading mp.defaults
+Prefix:console /LEVEL/ debug /MESSAGE/ loading mp.defaults
+Prefix:ytdl_hook /LEVEL/ debug /MESSAGE/ loading mp.defaults
+Prefix:stats /LEVEL/ debug /MESSAGE/ loading mp.defaults
+Prefix:auto_profiles /LEVEL/ debug /MESSAGE/ loading @auto_profiles.lua
+Prefix:auto_profiles /LEVEL/ debug /MESSAGE/ Exiting...
+Prefix:console /LEVEL/ debug /MESSAGE/ loading @console.lua
+Prefix:ytdl_hook /LEVEL/ debug /MESSAGE/ loading @ytdl_hook.lua
+Prefix:stats /LEVEL/ debug /MESSAGE/ loading @stats.lua
+Prefix:console /LEVEL/ debug /MESSAGE/ reading options for console 
+Prefix:console /LEVEL/ debug /MESSAGE/ script-opts/console.conf not found. 
+Prefix:console /LEVEL/ debug /MESSAGE/ lua-settings/console.conf not found. 
+Prefix:osd/libass /LEVEL/ debug /MESSAGE/ ASS library version: 0x1701000 (runtime 0x1701000)
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ libass API version: 0x1701000
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ libass source: commit: 0.17.0-41-g9b3c0d5b350e13eb69dc87b52751ec0ad44280af
+Prefix:ytdl_hook /LEVEL/ debug /MESSAGE/ reading options for ytdl_hook 
+Prefix:ytdl_hook /LEVEL/ debug /MESSAGE/ script-opts/ytdl_hook.conf not found. 
+Prefix:ytdl_hook /LEVEL/ debug /MESSAGE/ lua-settings/ytdl_hook.conf not found. 
+Prefix:stats /LEVEL/ debug /MESSAGE/ reading options for stats 
+Prefix:stats /LEVEL/ debug /MESSAGE/ script-opts/stats.conf not found. 
+Prefix:stats /LEVEL/ debug /MESSAGE/ lua-settings/stats.conf not found. 
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ Shaper: FriBidi 1.0.12 (SIMPLE) HarfBuzz-ng 7.1.0 (COMPLEX)
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ Setting up fonts...
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ Using font provider directwrite (with GDI)
+Prefix:osd/libass /LEVEL/ v /MESSAGE/ Done.
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: define-section, flags=64, args=[name="input_console", contents="", flags="default"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: enable-section, flags=64, args=[name="input_console", flags="allow-hide-cursor+allow-vo-dragging"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: define-section, flags=64, args=[name="input_forced_console", contents="", flags="force"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: enable-section, flags=64, args=[name="input_forced_console", flags="allow-hide-cursor+allow-vo-dragging"]
+Prefix:cplayer /LEVEL/ v /MESSAGE/ Done loading scripts.
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: define-section, flags=64, args=[name="input_stats", contents="", flags="default"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: enable-section, flags=64, args=[name="input_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: define-section, flags=64, args=[name="input_forced_stats", contents="", flags="force"]
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: enable-section, flags=64, args=[name="input_forced_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ Combined OpenGL extensions string:
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/  GL_3DFX_texture_compression_FXT1 GL_AMD_depth_clamp_separate GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_cl_event GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compatibility GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_fragment_shader_interlock GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_geometry_shader4 GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_robustness_isolation GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_bit_encoding GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shading_language_100 GL_ARB_shading_language_420pack GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_separate_stencil GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_object GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_memory_object GL_EXT_memory_object_win32 GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_polygon_offset_clamp GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_semaphore GL_EXT_semaphore_win32 GL_EXT_separate_specular_color GL_EXT_shader_framebuffer_fetch GL_EXT_shader_integer_mix GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_compression_s3tc GL_EXT_texture_edge_clamp GL_EXT_texture_env_add GL_EXT_texture_env_combine GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod_bias GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_texture_sRGB_decode GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_IBM_texture_mirrored_repeat GL_INTEL_conservative_rasterization GL_INTEL_fragment_shader_ordering GL_INTEL_framebuffer_CMAA GL_INTEL_map_texture GL_INTEL_multi_rate_fragment_shader GL_INTEL_performance_query GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_shader_subgroup GL_KHR_shader_subgroup_arithmetic GL_KHR_shader_subgroup_ballot GL_KHR_shader_subgroup_basic GL_KHR_shader_subgroup_clustered GL_KHR_shader_subgroup_quad GL_KHR_shader_subgroup_shuffle GL_KHR_shader_subgroup_shuffle_relative GL_KHR_shader_subgroup_vote GL_KHR_texture_compression_astc_hdr GL_KHR_texture_compression_astc_ldr GL_NV_blend_square GL_NV_conditional_render GL_NV_primitive_restart GL_NV_texgen_reflection GL_SGIS_generate_mipmap GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_SUN_multi_draw_arrays GL_WIN_swap_hint WGL_EXT_swap_control
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loaded extension WGL_EXT_swap_control.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loaded extension GL_KHR_debug.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ GL_*_swap_control extension missing.
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ Texture formats:
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   NAME       COMP*TYPE SIZE           DEPTH PER COMP.
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r8         1*unorm   1B    LF CR ST {8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg8        2*unorm   2B    LF CR ST {8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb8       3*unorm   3B    LF CR ST {8 8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba8      4*unorm   4B    LF CR ST {8 8 8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r16        1*unorm   2B    LF CR ST {16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg16       2*unorm   4B    LF CR ST {16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb16      3*unorm   6B    LF CR ST {16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba16     4*unorm   8B    LF CR ST {16 16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r8ui       1*uint    1B       CR ST {8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg8ui      2*uint    2B       CR ST {8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb8ui     3*uint    3B          ST {8 8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba8ui    4*uint    4B       CR ST {8 8 8 8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r16ui      1*uint    2B       CR ST {16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg16ui     2*uint    4B       CR ST {16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb16ui    3*uint    6B          ST {16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba16ui   4*uint    8B       CR ST {16 16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r16f       1*float   4B    LF CR ST {32/16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg16f      2*float   8B    LF CR ST {32/16 32/16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb16f     3*float  12B    LF CR ST {32/16 32/16 32/16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba16f    4*float  16B    LF CR ST {32/16 32/16 32/16 32/16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   r32f       1*float   4B    LF CR ST {32}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rg32f      2*float   8B    LF CR ST {32 32}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb32f     3*float  12B    LF CR ST {32 32 32}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba32f    4*float  16B    LF CR ST {32 32 32 32}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb10_a2   4*unorm   4B    LF CR ST {0/10 0/10 0/10 0/2}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba12     4*unorm   8B    LF CR ST {16 16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb10      3*unorm   6B    LF CR ST {16 16 16}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb565     3*unorm   2B    LF    ST {0/8 0/8 0/8}
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/  LA = LUMINANCE_ALPHA hack format
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/  LF = linear filterable
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/  CR = can be used for render targets
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/  ST = can be used for storable images
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ Image formats:
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p => 3 planes 1x1 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p => 3 planes 2x2 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray => 1 planes 1x1 8/0 [r8] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray16 => 1 planes 1x1 16/0 [r16] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   uyvy422
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv12 => 2 planes 2x2 8/0 [r8/rg8] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p010 => 2 planes 2x2 16/6 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   argb => 1 planes 1x1 8/0 [rgba8] (argb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgra => 1 planes 1x1 8/0 [rgba8] (bgra) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   abgr => 1 planes 1x1 8/0 [rgba8] (abgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba => 1 planes 1x1 8/0 [rgba8] (rgba) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr24 => 1 planes 1x1 8/0 [rgb8] (bgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb24 => 1 planes 1x1 8/0 [rgb8] (rgb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   0rgb => 1 planes 1x1 8/0 [rgba8] (_rgb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr0 => 1 planes 1x1 8/0 [rgba8] (bgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   0bgr => 1 planes 1x1 8/0 [rgba8] (_bgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb0 => 1 planes 1x1 8/0 [rgba8] (rgb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba64 => 1 planes 1x1 16/0 [rgba16] (rgba) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb565 => 1 planes 1x1 0/0 [rgb565] (rgb) [unknown]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   pal8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vdpau
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   d3d11
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   dxva2_vld
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   mmal
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   mediacodec
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   cuda
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yap8 => 2 planes 1x1 8/0 [r8/r8] (r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yap16 => 2 planes 1x1 16/0 [r16/r16] (r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   grayaf32 => 2 planes 1x1 32/0 [r16f/r16f] (r/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444pf => 3 planes 1x1 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444pf => 4 planes 1x1 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420pf => 3 planes 2x2 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420pf => 4 planes 2x2 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422pf => 3 planes 2x1 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422pf => 4 planes 2x1 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440pf => 3 planes 1x2 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva440pf => 4 planes 1x2 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv410pf => 3 planes 4x4 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva410pf => 4 planes 4x4 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv411pf => 3 planes 4x1 32/0 [r16f/r16f/r16f] (r/g/b) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva411pf => 4 planes 4x1 32/0 [r16f/r16f/r16f/r16f] (r/g/b/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb30 => 1 planes 1x1 10/0 [rgb10_a2] (bgr) [unknown]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   y1 => 1 planes 1x1 8/-7 [r8] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp1 => 3 planes 1x1 8/-7 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp2 => 3 planes 1x1 8/-6 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp3 => 3 planes 1x1 8/-5 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp4 => 3 planes 1x1 8/-4 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp5 => 3 planes 1x1 8/-3 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp6 => 3 planes 1x1 8/-2 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vdpau_output
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vaapi
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   videotoolbox
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   drm_prime
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuyv422
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p => 3 planes 2x1 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv410p => 3 planes 4x4 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv411p => 3 planes 4x1 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   monow
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   monob
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuvj422p => 3 planes 2x1 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   uyyvyy411
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr4
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr4_byte
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb4
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb4_byte
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv21 => 2 planes 2x2 8/0 [r8/rg8] (r/bg) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440p => 3 planes 1x2 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuvj440p => 3 planes 1x2 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p => 4 planes 2x2 8/0 [r8/r8/r8/r8] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb48be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb48 => 1 planes 1x1 16/0 [rgb16] (rgb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb565be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb555be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb555
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr565be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr565
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr555be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr555
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p16 => 3 planes 2x2 16/0 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p16 => 3 planes 2x1 16/0 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p16 => 3 planes 1x1 16/0 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb444
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgb444be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr444
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr444be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   ya8 => 1 planes 1x1 8/0 [rg8] (ra) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr48be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgr48 => 1 planes 1x1 16/0 [rgb16] (bgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p9 => 3 planes 2x2 16/-7 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p10 => 3 planes 2x2 16/-6 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p10 => 3 planes 2x1 16/-6 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p9 => 3 planes 1x1 16/-7 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p10 => 3 planes 1x1 16/-6 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p9 => 3 planes 2x1 16/-7 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp => 3 planes 1x1 8/0 [r8/r8/r8] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp9 => 3 planes 1x1 16/-7 [r16/r16/r16] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp10 => 3 planes 1x1 16/-6 [r16/r16/r16] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp16 => 3 planes 1x1 16/0 [r16/r16/r16] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p => 4 planes 2x1 8/0 [r8/r8/r8/r8] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p => 4 planes 1x1 8/0 [r8/r8/r8/r8] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p9 => 4 planes 2x2 16/-7 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p9 => 4 planes 2x1 16/-7 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p9 => 4 planes 1x1 16/-7 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p10 => 4 planes 2x2 16/-6 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p10 => 4 planes 2x1 16/-6 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p10 => 4 planes 1x1 16/-6 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva420p16 => 4 planes 2x2 16/0 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p16 => 4 planes 2x1 16/0 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p16 => 4 planes 1x1 16/0 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xyz12 => 1 planes 1x1 16/4 [rgb16] (rgb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xyz12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv16 => 2 planes 2x1 8/0 [r8/rg8] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv20 => 2 planes 2x1 16/-6 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv20be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgba64be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgra64be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bgra64 => 1 planes 1x1 16/0 [rgba16] (bgra) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yvyu422
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   ya16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   ya16 => 1 planes 1x1 16/0 [rg16] (ra) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap => 4 planes 1x1 8/0 [r8/r8/r8/r8] (g/b/r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap16 => 4 planes 1x1 16/0 [r16/r16/r16/r16] (g/b/r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   qsv
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   d3d11va_vld
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p12 => 3 planes 2x2 16/-4 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p14be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv420p14 => 3 planes 2x2 16/-2 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p12 => 3 planes 2x1 16/-4 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p14be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv422p14 => 3 planes 2x1 16/-2 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p12 => 3 planes 1x1 16/-4 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p14be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv444p14 => 3 planes 1x1 16/-2 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp12 => 3 planes 1x1 16/-4 [r16/r16/r16] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp14be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrp14 => 3 planes 1x1 16/-2 [r16/r16/r16] (g/b/r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuvj411p => 3 planes 4x1 8/0 [r8/r8/r8] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_bggr8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_rggb8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_gbrg8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_grbg8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_bggr16
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_bggr16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_rggb16
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_rggb16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_gbrg16
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_gbrg16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_grbg16
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   bayer_grbg16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xvmc
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440p10 => 3 planes 1x2 16/-6 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440p10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440p12 => 3 planes 1x2 16/-4 [r16/r16/r16] (r/g/b) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuv440p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   ayuv64 => 1 planes 1x1 16/0 [rgba16] (argb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   ayuv64be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p010be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap12 => 4 planes 1x1 16/-4 [r16/r16/r16/r16] (g/b/r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrap10 => 4 planes 1x1 16/-6 [r16/r16/r16/r16] (g/b/r/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray12 => 1 planes 1x1 16/-4 [r16] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray10 => 1 planes 1x1 16/-6 [r16] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p016 => 2 planes 2x2 16/0 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p016be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray9be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray9 => 1 planes 1x1 16/-7 [r16] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrpf32be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrpf32 => 3 planes 1x1 32/0 [r16f/r16f/r16f] (g/b/r) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrapf32be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gbrapf32 => 4 planes 1x1 32/0 [r16f/r16f/r16f/r16f] (g/b/r/a) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   opencl
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray14be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   gray14 => 1 planes 1x1 16/-2 [r16] (r) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   grayf32be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   grayf32 => 1 planes 1x1 32/0 [r16f] (r) [float]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva422p12 => 4 planes 2x1 16/-4 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p12be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   yuva444p12 => 4 planes 1x1 16/-4 [r16/r16/r16/r16] (r/g/b/a) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv24 => 2 planes 1x1 8/0 [r8/rg8] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   nv42 => 2 planes 1x1 8/0 [r8/rg8] (r/bg) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vulkan
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   y210be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   y210
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   x2rgb10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   x2bgr10
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   x2bgr10be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p210be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p210 => 2 planes 2x1 16/6 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p410be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p410 => 2 planes 1x1 16/6 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p216be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p216 => 2 planes 2x1 16/0 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p416be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p416 => 2 planes 1x1 16/0 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vuya => 1 planes 1x1 8/0 [rgba8] (bgra) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbaf16be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbaf16
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   vuyx => 1 planes 1x1 8/0 [rgba8] (bgr) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p012 => 2 planes 2x2 16/4 [r16/rg16] (r/gb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   p012be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   y212be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   y212
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xv30be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xv30
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xv36be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   xv36 => 1 planes 1x1 16/4 [rgba16] (grb) [unorm]
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbf32be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbf32
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbaf32be
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/   rgbaf32
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Testing FBO format rgba8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ Resizing texture: 16x16
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Using FBO format rgba8.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ No advanced processing required. Enabling dumb mode.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'd3d11-egl'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'dxva2-egl'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'd3d11va'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'dxva2-dxgi'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'dxva2-dxinterop'
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading hwdec driver 'cuda'
+Prefix:libmpv_render/cuda /LEVEL/ v /MESSAGE/ cu->cuInit(0) failed -> CUDA_ERROR_UNKNOWN: unknown error
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Loading failed.
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ Run command: loadfile, flags=64, args=[url="https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.m3u8", flags="replace", options=""]
+Prefix:global /LEVEL/ debug /MESSAGE/ config path: 'watch_later' -> '-'
+Prefix:cplayer /LEVEL/ v /MESSAGE/ Running hook: ytdl_hook/on_load
+Prefix:ytdl_hook /LEVEL/ v /MESSAGE/ ytdl:// hook 
+Prefix:ytdl_hook /LEVEL/ v /MESSAGE/ not a ytdl:// url 
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ Opening https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.m3u8
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ resize stream to 131072 bytes, drop 0 bytes
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ Mime-type: 'application/vnd.apple.mpegurl'
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ Stream opened successfully.
+Prefix:demux /LEVEL/ v /MESSAGE/ Trying demuxers for level=normal.
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: disc (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: edl (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: cue (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: rawaudio (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: rawvideo (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: mkv (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: libarchive (force-level: normal)
+Prefix:demux /LEVEL/ debug /MESSAGE/ Trying demuxer: lavf (force-level: normal)
+Prefix:lavf /LEVEL/ v /MESSAGE/ Found 'hls' at score=100 size=430.
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.360.m3u8' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Skip ('#EXT-X-VERSION:3')
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.480.m3u8' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Skip ('#EXT-X-VERSION:3')
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.720.m3u8' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Skip ('#EXT-X-VERSION:3')
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.1080.m3u8' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Skip ('#EXT-X-VERSION:3')
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.3600.ts', offset 0, playlist 0
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.3600.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.3601.ts', offset 0, playlist 0
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.3601.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.4800.ts', offset 0, playlist 1
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.4800.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.4801.ts', offset 0, playlist 1
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.4801.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.7200.ts', offset 0, playlist 2
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.7200.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.7201.ts', offset 0, playlist 2
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.7201.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10800.ts', offset 0, playlist 3
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10800.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10801.ts', offset 0, playlist 3
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10801.ts' for reading
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Starting connection attempt to 104.18.17.137 port 443
+Prefix:ffmpeg /LEVEL/ debug /MESSAGE/ tcp: Successfully connected to 104.18.17.137 port 443
+Prefix:ffmpeg/video /LEVEL/ debug /MESSAGE/ h264: Reinit context to 640x368, pix_fmt: yuv420p
+Prefix:ffmpeg/video /LEVEL/ debug /MESSAGE/ h264: Reinit context to 864x480, pix_fmt: yuv420p
+Prefix:ffmpeg/video /LEVEL/ debug /MESSAGE/ h264: Reinit context to 1280x720, pix_fmt: yuv420p
+Prefix:ffmpeg/video /LEVEL/ debug /MESSAGE/ h264: Reinit context to 1920x1088, pix_fmt: yuv420p
+Prefix:lavf /LEVEL/ v /MESSAGE/ avformat_find_stream_info() finished after 0 bytes.
+Prefix:demux /LEVEL/ v /MESSAGE/ Detected file format: hls (libavformat)
+Prefix:cplayer /LEVEL/ v /MESSAGE/ Opening done: https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.m3u8
+Prefix:cplayer /LEVEL/ v /MESSAGE/ Running hook: ytdl_hook/on_preloaded
+Prefix:lavf /LEVEL/ v /MESSAGE/ select track 6
+Prefix:lavf /LEVEL/ v /MESSAGE/ select track 7
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Video --vid=1 (h264 640x360 23.976fps) (225 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Video --vid=2 (h264 854x480 23.976fps) (381 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Video --vid=3 (h264 1280x720 23.976fps) (848 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/  (+) Video --vid=4 (h264 1920x1080 23.976fps) (1833 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Audio --aid=1 (aac 2ch 44100Hz) (225 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Audio --aid=2 (aac 2ch 44100Hz) (381 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/      Audio --aid=3 (aac 2ch 44100Hz) (848 kbps)
+Prefix:cplayer /LEVEL/ info /MESSAGE/  (+) Audio --aid=4 (aac 2ch 44100Hz) (1833 kbps)
+Prefix:vd /LEVEL/ v /MESSAGE/ Container reported FPS: 23.976024
+Prefix:vd /LEVEL/ v /MESSAGE/ Codec list:
+Prefix:vd /LEVEL/ v /MESSAGE/     h264 - H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+Prefix:vd /LEVEL/ v /MESSAGE/     h264_qsv (h264) - H264 video (Intel Quick Sync Video acceleration)
+Prefix:vd /LEVEL/ v /MESSAGE/     h264_cuvid (h264) - Nvidia CUVID H264 decoder
+Prefix:vd /LEVEL/ v /MESSAGE/ Opening decoder h264
+Prefix:vd /LEVEL/ v /MESSAGE/ No hardware decoding requested.
+Prefix:vd /LEVEL/ v /MESSAGE/ Using software decoding.
+Prefix:vd /LEVEL/ v /MESSAGE/ Requesting 4 threads for decoding.
+Prefix:vd /LEVEL/ v /MESSAGE/ Selected codec: h264 (H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10)
+Prefix:vf /LEVEL/ v /MESSAGE/ User filter list:
+Prefix:vf /LEVEL/ v /MESSAGE/   (empty)
+Prefix:ad /LEVEL/ v /MESSAGE/ Codec list:
+Prefix:ad /LEVEL/ v /MESSAGE/     aac - AAC (Advanced Audio Coding)
+Prefix:ad /LEVEL/ v /MESSAGE/     aac_fixed (aac) - AAC (Advanced Audio Coding)
+Prefix:ad /LEVEL/ v /MESSAGE/ Opening decoder aac
+Prefix:ad /LEVEL/ v /MESSAGE/ Requesting 1 threads for decoding.
+Prefix:ad /LEVEL/ v /MESSAGE/ Selected codec: aac (AAC (Advanced Audio Coding))
+Prefix:af /LEVEL/ v /MESSAGE/ User filter list:
+Prefix:af /LEVEL/ v /MESSAGE/   (empty)
+Prefix:cplayer /LEVEL/ v /MESSAGE/ Starting playback...
+Prefix:lavf /LEVEL/ debug /MESSAGE/ stream 7: resize index to 128
+Prefix:ffmpeg/video /LEVEL/ debug /MESSAGE/ h264: Reinit context to 1920x1088, pix_fmt: yuv420p
+Prefix:vd /LEVEL/ debug /MESSAGE/ DR parameter change to 1920x1090 yuv420p align=64
+Prefix:vd /LEVEL/ debug /MESSAGE/ Allocating new (host-cached) DR image...
+Prefix:vd /LEVEL/ debug /MESSAGE/ ...failed..
+Prefix:vd /LEVEL/ v /MESSAGE/ DR failed - disabling.
+Prefix:vd /LEVEL/ v /MESSAGE/ Using software decoding.
+Prefix:vd /LEVEL/ v /MESSAGE/ Decoder format: 1920x1080 yuv420p auto/auto/auto/auto/auto CL=mpeg2/4/h264
+Prefix:vf /LEVEL/ v /MESSAGE/ [in] 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:vf /LEVEL/ v /MESSAGE/ [userdeint] 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:vf /LEVEL/ v /MESSAGE/ [userdeint] (disabled)
+Prefix:vf /LEVEL/ v /MESSAGE/ [autorotate] 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:vf /LEVEL/ v /MESSAGE/ [autorotate] (disabled)
+Prefix:vf /LEVEL/ v /MESSAGE/ [convert] 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:vf /LEVEL/ v /MESSAGE/ [convert] (disabled)
+Prefix:vf /LEVEL/ v /MESSAGE/ [out] 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:af /LEVEL/ v /MESSAGE/ [in] 44100Hz stereo 2ch floatp
+Prefix:af /LEVEL/ v /MESSAGE/ [userspeed] 44100Hz stereo 2ch floatp
+Prefix:af /LEVEL/ v /MESSAGE/ [userspeed] (disabled)
+Prefix:af /LEVEL/ v /MESSAGE/ [convert] 44100Hz stereo 2ch floatp
+Prefix:ao /LEVEL/ v /MESSAGE/ Trying audio driver 'wasapi'
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ requested format: 44100 Hz, stereo channels, floatp
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Init wasapi
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Find device ''
+Prefix:lavf /LEVEL/ debug /MESSAGE/ stream 6: resize index to 128
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ No device specified. Selecting default.
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Selecting device '{4e89deda-fb96-454a-9448-26fa300077f6}' (Speakers (Realtek(R) Audio))
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Monitoring changes in device {0.0.0.00000000}.{4e89deda-fb96-454a-9448-26fa300077f6}
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Init wasapi thread
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Activating pAudioClient interface
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Probing formats
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Window size: 1920x1080 (Borders: l=0 t=0 r=0 b=0)
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video source: 0x0 (0:0)
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video display: (0, 0) 1x1 -> (0, 0) 1920x1080
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video scale: 1920.000000/1080.000000
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ OSD borders: l=-1073740864 t=0 r=-1073740864 b=0
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video borders: l=0 t=0 r=0 b=0
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Trying stereo float (32/32 bits) @ 48000hz (shared) -> ok
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Accepted as stereo float @ 48000hz -> stereo float (32/32 bits) @ 48000hz (shared)
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Fixing format
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::GetDevicePeriod
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Device period: 10 ms
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::Initialize
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::Initialize pRenderClient
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::Initialize IAudioClient_SetEventHandle
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::Initialize IAudioClient_GetBufferSize
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ Buffer frame count: 2400 (50 ms)
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ IAudioClock::GetFrequency gave a frequency of 384000.
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ IAudioClient::Initialize pAudioVolume
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Entering dispatch loop
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Init wasapi done
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ device buffer: 2400 samples.
+Prefix:ao/wasapi /LEVEL/ v /MESSAGE/ using soft-buffer of 9600 samples.
+Prefix:cplayer /LEVEL/ info /MESSAGE/ AO: [wasapi] 48000Hz stereo 2ch float
+Prefix:cplayer /LEVEL/ v /MESSAGE/ AO: Description: Windows WASAPI audio output (event mode)
+Prefix:autoconvert /LEVEL/ v /MESSAGE/ inserting resampler
+Prefix:swresample /LEVEL/ v /MESSAGE/ format change, reinitializing resampler
+Prefix:swresample /LEVEL/ v /MESSAGE/ 44100Hz stereo floatp -> 48000Hz stereo float
+Prefix:af /LEVEL/ v /MESSAGE/ [out] 48000Hz stereo 2ch float
+Prefix:cplayer /LEVEL/ info /MESSAGE/ VO: [libmpv] 1920x1080 yuv420p
+Prefix:cplayer /LEVEL/ v /MESSAGE/ VO: Description: render API for libmpv
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ reconfig to 1920x1080 yuv420p bt.709/bt.709/bt.1886/limited/display SP=1.000000 CL=mpeg2/4/h264
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Window size: 1920x1080 (Borders: l=0 t=0 r=0 b=0)
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video source: 1920x1080 (1:1)
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video display: (0, 0) 1920x1080 -> (0, 0) 1920x1080
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video scale: 1.000000/1.000000
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ OSD borders: l=0 t=0 r=0 b=0
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Video borders: l=0 t=0 r=0 b=0
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Texture for plane 0: 1920x1080
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Texture for plane 1: 960x540
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Texture for plane 2: 960x540
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Testing FBO format rgba8
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ Resizing texture: 16x16
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Using FBO format rgba8.
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ No advanced processing required. Enabling dumb mode.
+Prefix:cplayer /LEVEL/ v /MESSAGE/ first video frame after restart shown
+Prefix:cplayer /LEVEL/ v /MESSAGE/ audio ready
+Prefix:cplayer /LEVEL/ debug /MESSAGE/ starting video playback
+Prefix:cplayer /LEVEL/ v /MESSAGE/ starting audio playback
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Thread Resume
+Prefix:ao/wasapi /LEVEL/ debug /MESSAGE/ Thread Reset
+Prefix:cplayer /LEVEL/ v /MESSAGE/ playback restart complete @ 0.023211, audio=playing, video=playing
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Resized buffer pool of type 1 to size 1
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Resized buffer pool of type 1 to size 1
+Prefix:libmpv_render /LEVEL/ v /MESSAGE/ Resized buffer pool of type 1 to size 1
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ vertex shader source:
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  1] #version 440
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  2] #define tex1D texture
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  3] #define tex3D texture
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  4] #define LUT_POS(x, lut_size) mix(0.5 / (lut_size), 1.0 - 0.5 / (lut_size), (x))
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  5] in vec2 vertex_position;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  6] in vec2 vertex_texcoord0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  7] out vec2 texcoord0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  8] in vec2 vertex_texcoord1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  9] out vec2 texcoord1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 10] in vec2 vertex_texcoord2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 11] out vec2 texcoord2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 12] void main() {
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 13] gl_Position = vec4(vertex_position, 1.0, 1.0);
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 14] texcoord0 = vertex_texcoord0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 15] texcoord1 = vertex_texcoord1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 16] texcoord2 = vertex_texcoord2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 17] }
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ fragment shader source:
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  1] #version 440
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  2] #define tex1D texture
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  3] #define tex3D texture
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  4] #define LUT_POS(x, lut_size) mix(0.5 / (lut_size), 1.0 - 0.5 / (lut_size), (x))
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  5] out vec4 out_color;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  6] in vec2 texcoord0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  7] in vec2 texcoord1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  8] in vec2 texcoord2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [  9] layout(std140, binding=0) uniform UBO {
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 10] layout(offset=0) mat3 colormatrix;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 11] layout(offset=48) vec3 colormatrix_c;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 12] layout(offset=64) vec3 src_luma;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 13] layout(offset=80) vec3 dst_luma;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 14] layout(offset=96) vec2 texture_size0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 15] layout(offset=112) mat2 texture_rot0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 16] layout(offset=144) vec2 texture_off0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 17] layout(offset=152) vec2 pixel_size0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 18] layout(offset=160) vec2 texture_size1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 19] layout(offset=176) mat2 texture_rot1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 20] layout(offset=208) vec2 texture_off1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 21] layout(offset=216) vec2 pixel_size1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 22] layout(offset=224) vec2 texture_size2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 23] layout(offset=240) mat2 texture_rot2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 24] layout(offset=272) vec2 texture_off2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 25] layout(offset=280) vec2 pixel_size2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 26] };
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 27] uniform sampler2D texture0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 28] uniform sampler2D texture1;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 29] uniform sampler2D texture2;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 30] void main() {
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 31] vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 32] color.r = 1.000000 * vec4(texture(texture0, texcoord0)).r;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 33] color.g = 1.000000 * vec4(texture(texture1, texcoord1)).r;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 34] color.b = 1.000000 * vec4(texture(texture2, texcoord2)).r;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 35] color = color.rgbr;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 36] color.rgb = mat3(colormatrix) * color.rgb + colormatrix_c;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 37] color.a = 1.0;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 38] // color mapping
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 39] color.rgb *= vec3(1.000000);
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 40] color.rgb *= vec3(1.000000);
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 41] out_color = color;
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ [ 42] }
+Prefix:libmpv_render /LEVEL/ debug /MESSAGE/ shader link log (status=1): 
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: No longer receiving playlist 1 ('https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.480.m3u8')
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: No longer receiving playlist 2 ('https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.720.m3u8')
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10802.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10802.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ v /MESSAGE/ hls: No longer receiving playlist 0 ('https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.360.m3u8')
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10803.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10803.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10804.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10804.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10805.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10805.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10806.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10806.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10807.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10807.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10808.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10808.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10809.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.10809.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108010.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108010.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108011.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108011.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108012.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108012.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108013.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108013.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108014.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108014.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108015.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108015.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108016.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108016.ts' for reading
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108017.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108017.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108018.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108018.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108019.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108019.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108020.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108020.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108021.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108021.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108022.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108022.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108023.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108023.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108024.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108024.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108025.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108025.ts' for reading
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:vo/libmpv /LEVEL/ v /MESSAGE/ mpv_render_context_render() not being called or stuck.
+Prefix:ffmpeg/demuxer /LEVEL/ debug /MESSAGE/ hls: HLS request for url 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108026.ts', offset 0, playlist 3
+Prefix:ffmpeg /LEVEL/ v /MESSAGE/ https: Opening 'https://www048.vipanicdn.net/streamhls/8360663a1792a9a9f4405872d68aec08/ep.5.1687920836.108026.ts' for reading

@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <TGUI/TGUI.hpp>
+#include <fstream>
 
 struct M
 {
@@ -104,6 +105,8 @@ public:
 	void onSettingsButtonPressed(std::function<void(void)> func);
 	void onSubButtonPressed(std::function<void(void)> func);
 	void onDubButtonPressed(std::function<void(void)> func);
+	void onNextButtonPressed(std::function<void(void)> func);
+	void onPreviousButtonPressed(std::function<void(void)> func);
 
 	long double getPos();
 	long double getDuration();
