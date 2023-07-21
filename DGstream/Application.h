@@ -35,13 +35,14 @@ private:
 	void update();
 	void render();
 	void handleEvents();
-	void playVideo(std::string url);
+	void playVideo(int episode = 0);
 
 	void initWindow();
 	void initGui();
 	void loadMainMenu();
 	void displaySearch();
 	void displayAnimeInfo(int count = 0);
+	void saveAnimeInfo(Json::Value data);
 
 public:
 

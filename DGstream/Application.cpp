@@ -2,30 +2,33 @@
 
 void Application::update()
 {
-	if (playvideo)
+	if (window.hasFocus())
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		if (playvideo)
 		{
-			player->ispaused() ? player->play() : player->pause();
-			sf::sleep(sf::seconds(.2f));
-			player->showHud(true);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		{
-			player->seek(5);
-			sf::sleep(sf::seconds(.2f));
-			player->showHud(true);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		{
-			player->seek(-5);
-			sf::sleep(sf::seconds(.2f));
-			player->showHud(true);
-		}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				player->ispaused() ? player->play() : player->pause();
+				sf::sleep(sf::seconds(.2f));
+				player->showHud(true);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			{
+				player->seek(5);
+				sf::sleep(sf::seconds(.2f));
+				player->showHud(true);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				player->seek(-5);
+				sf::sleep(sf::seconds(.2f));
+				player->showHud(true);
+			}
 
-		if (!window.hasFocus())
-		{
-			player->showHud(player->isHudshown());
+			if (!window.hasFocus())
+			{
+				player->showHud(player->isHudshown());
+			}
 		}
 	}
 
@@ -88,11 +91,18 @@ void Application::handleEvents()
 		player->handleEvents();
 }
 
-void Application::playVideo(std::string url)
+void Application::playVideo(int episode)
 {
 	mutex.lock();
 	gui.removeAllWidgets();
-	player->load(url);
+	auto val = jsons["stream-links"];
+	for (int i = 0; i < val["sources"].size(); i++)
+	{
+		if (val["sources"][i]["quality"].asString() == "720p")
+		{
+			player->load(val["sources"][i]["url"].asString());
+		}
+	}
 	player->setSize(1920, 1080);
 	player->addWidgetstoGui(gui);
 	playvideo = true;
@@ -100,7 +110,18 @@ void Application::playVideo(std::string url)
 
 	player->onNextButtonPressed([&]()
 		{
+			if (jsons["animeInfo"]["totalEpisodes"].asInt() > episode + 1)
+			{
+				auto val = jsons["animeInfo"];
 
+				Net::Https::sendrequestcb(gogourl watch + val["episodes"][episode + 1].asString(), [&](Json::Value newvalue)
+					{
+						std::cout << newvalue << '\n';
+						jsons["stream-links"] = newvalue;
+						playVideo(episode + 1);
+					}
+				);
+			}
 		}
 	);
 
@@ -365,6 +386,73 @@ void Application::displayAnimeInfo(int count)
 	gui.removeAllWidgets();
 	textures.clear();
 	animeInfo = tgui::Group::create();
+	
+	Json::Value data;
+	Json::Value savedval;
+	Json::Reader reader;
+	std::fstream fs;
+	std::string buffer;
+	//std::string temp;
+	auto val = jsons["animeInfo"];
+
+	fs.open("data/animeInfo.json");
+	if (fs.is_open())
+	{
+		buffer = Sys::readWholeFile(&fs);
+		fs.close();
+
+		reader.parse(buffer,data);
+
+		for (int i = 0; i < data["NumAnime"].asInt(); i++)
+		{
+			if (data["Sources"][i]["id"].asString() == val["id"].asString())
+			{
+				std::cout << "CALLED AND I IS:" << i << '\n';
+				fs.open("data/animeInfo/" + data["Sources"][i]["id"].asString() + ".json");
+				if (fs.is_open())
+				{
+					 buffer = Sys::readWholeFile(&fs);
+					 reader.parse(buffer,savedval);
+					 std::cout << savedval << '\n';
+					 if (val["totalEpisodes"].asInt() != savedval["totalEpisodes"].asInt())
+					 {
+						 saveAnimeInfo(val);
+					 }
+					 else
+						val = savedval;
+				}
+				fs.close();
+				break;
+			}
+			else if(i == (data["NumAnime"].asInt() - 1))
+			{
+				/*val["watched"] = 0;
+				fs.open("data/animeInfo/" + val["id"].asString() + ".json",std::ios::out);
+				if (fs.is_open())
+				{
+					Json::StyledWriter writer;
+					fs << writer.write(val);
+				}
+				fs.close();
+
+				Json::Value v;
+				v["name"] = val["title"].asString();
+				v["id"] = val["id"].asString();
+				data["Sources"].append(v);
+				data["NumAnime"] = data["NumAnime"].asInt() + 1;
+
+				fs.open("data/animeInfo.json",std::ios::trunc | std::ios::out);
+				if (fs.is_open())
+				{
+					std::cout << "THIS RUNS\n";
+					Json::StyledWriter writer;
+					fs << writer.write(data);
+				}
+				fs.close();*/
+				saveAnimeInfo(data);
+			}
+		}
+	}
 
 	try
 	{
@@ -375,7 +463,8 @@ void Application::displayAnimeInfo(int count)
 		std::cout << e.what() << '\n';
 	}
 	gui.add(animeInfo);
-	auto val = jsons["animeInfo"];
+
+
 	val["image"] = "res/img/" + val["id"].asString() + ".png";
 	textures.push_back(std::make_shared<sf::Texture>());
 	textures.back()->loadFromFile(val["image"].asString());
@@ -411,11 +500,17 @@ void Application::displayAnimeInfo(int count)
 		btn->setVisible(true);
 		dbtn->setVisible(true);
 		eplabel->setVisible(true);
-
 		btn->setPosition(30 + (x * 230), 122 + (y * 107));
 		eplabel->setPosition(30 + (x * 230), 122 + (y *  107));
 		dbtn->setPosition(btn->getPosition().x + 173, btn->getPosition().y + 18);
-		ss << "ep. " << (i + 1);
+		if (val["episodes"][i]["watched"].asBool())
+		{
+			ss << "ep. " << (val["episodes"][i]["number"].asInt());
+			btn->getRenderer()->setTexture("res/animeInfo/EPISODE DOWNLOAD BUTTON.png");
+		}
+		else
+			ss << "ep. " << (val["episodes"][i]["number"].asInt());
+
 		eplabel->setText(ss.str());
 		scrollpanel->add(eplabel);
 		scrollpanel->add(btn);
@@ -426,40 +521,9 @@ void Application::displayAnimeInfo(int count)
 				downloader.addRequest(consumet gogo watch + jsons["animeInfo"]["episodes"][a]["id"].asString() + server gogocdn, [&](Json::Value newvalue)
 				{
 						std::cout << newvalue << '\n';
-						for (int i = 0; i < newvalue["sources"].size(); i++)
-						{
-							if (newvalue["sources"][i]["quality"].asString() == "default")
-							{
-								playVideo(newvalue["sources"][i]["url"].asString());
-								break;
-							}
-						}
-				},false);
-				if (jsons["animeInfo"]["episodes"] > 1)
-				{
-					int max = 0;
-					if (a + 1 > jsons["animeInfo"]["episodes"].size())
-					{
-						max = jsons["animeInfo"]["episodes"].size() - a;
-					}
-					else
-						max = a + 1;
-
-					std::vector<Net::requestCb>requests;
-					for (int i = a + 1; i < max; i++)
-					{
-						std::string url = consumet gogo watch + jsons["animeInfo"]["episodes"][i]["id"].asString() + server gogocdn;
-						std::function<void(Json::Value)> func = [&](Json::Value newvalue)
-						{
-							player->addToPlaylist(newvalue["sources"][2]["url"].asString());
-						};
-						
-						requests.push_back(Net::createrequests(url,func));
-					}
-
-					downloader.addRequests(requests);
-
-				}
+						jsons["stream-links"] = newvalue;
+						playVideo();
+				});
 		}, i);
 
 		x++;
@@ -487,7 +551,6 @@ void Application::displayAnimeInfo(int count)
 				std::cout << e.what() << '\n';
 			}
 
-			
 		}
 	);
 
@@ -496,47 +559,18 @@ void Application::displayAnimeInfo(int count)
 		{
 			try 
 			{
-			downloader.addRequest(consumet gogo watch + jsons["animeInfo"]["episodes"][0]["id"].asString() + server gogocdn, [&](Json::Value newvalue)
+			downloader.addRequest(consumet gogo watch + val["episodes"][val["watched"].asInt()]["id"].asString() + server gogocdn, [&](Json::Value newvalue)
 				{
 					std::cout << newvalue << '\n';
-
-					for (int i = 0; i < newvalue["sources"].size(); i++)
-					{
-						if (newvalue["sources"][i]["quality"].asString() == "default")
-						{
-							playVideo(newvalue["sources"][i]["url"].asString());
-							break;
-						}
-					}
-				},false);
+					jsons["stream-links"] = newvalue;
+					playVideo();
+				});
 
 			}
 			catch (Json::Exception e)
 			{
 				std::cout << e.what() << '\n';
 			}
-			
-			int max = 0;
-			if (1 > jsons["animeInfo"]["episodes"].size())
-			{
-				max = jsons["animeInfo"]["episodes"].size();
-			}
-			else
-				max = 1;
-
-			std::vector<Net::requestCb>requests;
-			for (int i =  1; i < max; i++)
-			{
-				std::string url = consumet gogo watch + jsons["animeInfo"]["episodes"][i]["id"].asString() + server gogocdn;
-				std::function<void(Json::Value)> func = [&](Json::Value newvalue)
-				{
-					player->addToPlaylist(newvalue["sources"][2]["url"].asString());
-				};
-
-				requests.push_back(Net::createrequests(url, func));
-			}
-
-			downloader.addRequests(requests);
 		}
 	);
 
@@ -551,6 +585,47 @@ void Application::displayAnimeInfo(int count)
 	mutex.unlock();
 }
 
+void Application::saveAnimeInfo(Json::Value data)
+{
+	std::fstream fs;
+	auto val = jsons["animeInfo"];
+
+	val["watched"] = 0;
+
+	for (int i = 0; i < val["totalEpisodes"].asInt(); i++)
+	{
+		if (!val["episodes"][i].isMember("watched"))
+		{
+			val["episodes"][i]["watched"] = false;
+			val["episodes"][i]["downloaded"] = false;
+		}
+		std::cout << "Called\n";
+	}
+
+	fs.open("data/animeInfo/" + val["id"].asString() + ".json", std::ios::out);
+	if (fs.is_open())
+	{
+		Json::StyledWriter writer;
+		fs << writer.write(val);
+	}
+	fs.close();
+
+	Json::Value v;
+	v["name"] = val["title"].asString();
+	v["id"] = val["id"].asString();
+	data["Sources"].append(v);
+	data["NumAnime"] = data["NumAnime"].asInt() + 1;
+
+	fs.open("data/animeInfo.json", std::ios::trunc | std::ios::out);
+	if (fs.is_open())
+	{
+		std::cout << "THIS RUNS\n";
+		Json::StyledWriter writer;
+		fs << writer.write(data);
+	}
+	fs.close();
+}
+
 void Application::runDownloader()
 {
 	downloader.Run();
@@ -562,31 +637,33 @@ Application::Application()
 	//Net::Downloader::Init();
 	this->downloadthread = std::thread([&] {runDownloader(); });
 	playvideo = false;
-
-	if (Net::Https::hasInternet())
-	{
-		downloader.addard(gogourl recent, [&](Json::Value val) 
-		{
-			std::cout << val << '\n';
-			jsons.insert({ "top-airing",val });
-			loadMainMenu(); 
-		});
-	}
-	
 	initWindow();
 	initGui();
+
+	
+		if(Net::Https::hasInternet())
+		{
+			downloader.addard(gogourl recent, [&](Json::Value val)
+				{
+					std::cout << val << '\n';
+					jsons.insert({ "top-airing",val });
+					loadMainMenu();
+				});
+		}
+	
 
 	tgui::Picture::Ptr pic = tgui::Picture::create("res/LOGO.png");
 	pic->setPosition("50% - 175", "50% - 175");
 	pic->setSize(350, 350);
 	//pic->setPosition(pic->getPosition().x - pic->getSize().x, pic->getPosition().y - pic->getSize().y);
 	gui.add(pic);
+
 	//else
 	//	loadMainMenu();
 		//loadMainMenu();
 	
 	//tex.loadFromFile("res/logo.png");
-	player = std::make_shared<Player>();
+		player = std::make_shared<Player>();
 }
 
 Application::~Application()

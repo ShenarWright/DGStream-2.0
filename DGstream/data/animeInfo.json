@@ -1,0 +1,25 @@
+{
+   "NumAnime" : 5,
+   "Sources" : [
+      {
+         "id" : "jigokuraku-dub",
+         "name" : "Jigokuraku (Dub)"
+      },
+      {
+         "id" : "demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub",
+         "name" : "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc (Dub)"
+      },
+      {
+         "id" : "kage-no-jitsuryokusha-ni-naritakute-dub",
+         "name" : "Kage no Jitsuryokusha ni Naritakute! (Dub)"
+      },
+      {
+         "id" : "isekai-de-cheat-skill-wo-te-ni-shita-ore-wa-genjitsu-sekai-wo-mo-musou-suru-level-up-wa-jinsei-wo-kaeta-dub",
+         "name" : "Isekai de Cheat Skill wo Te ni Shita Ore wa, Genjitsu Sekai wo mo Musou Suru: Level Up wa Jinsei wo Kaeta (Dub)"
+      },
+      {
+         "id" : "bleach-dub",
+         "name" : "Bleach (Dub)"
+      }
+   ]
+}

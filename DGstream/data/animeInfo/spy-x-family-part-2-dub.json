@@ -1,0 +1,108 @@
+{
+   "description" : "The second part of Spy x Family.",
+   "episodes" : [
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-1",
+         "number" : 1,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-1",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-2",
+         "number" : 2,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-2",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-3",
+         "number" : 3,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-3",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-4",
+         "number" : 4,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-4",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-5",
+         "number" : 5,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-5",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-6",
+         "number" : 6,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-6",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-7",
+         "number" : 7,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-7",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-8",
+         "number" : 8,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-8",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-9",
+         "number" : 9,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-9",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-10",
+         "number" : 10,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-10",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-11",
+         "number" : 11,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-11",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-12",
+         "number" : 12,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-12",
+         "watched" : true
+      },
+      {
+         "downloaded" : false,
+         "id" : "spy-x-family-part-2-dub-episode-13",
+         "number" : 13,
+         "url" : "https://gogoanime.cl//spy-x-family-part-2-dub-episode-13",
+         "watched" : true
+      }
+   ],
+   "genres" : [ "Action", "Childcare", "Comedy", "Shounen" ],
+   "id" : "spy-x-family-part-2-dub",
+   "image" : "https://gogocdn.net/cover/spy-x-family-part-2-dub.png",
+   "otherName" : "SPY\u00d7FAMILY",
+   "releaseDate" : "2022",
+   "status" : "Completed",
+   "subOrDub" : "dub",
+   "title" : "Spy x Family Part 2 (Dub)",
+   "totalEpisodes" : 13,
+   "type" : "FALL 2022 ANIME",
+   "url" : "/category/spy-x-family-part-2-dub",
+   "watched" : 0
+}

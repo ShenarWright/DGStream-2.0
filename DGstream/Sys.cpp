@@ -12,4 +12,14 @@ namespace Sys
         }
         return str;
     }
+    std::string readWholeFile(std::fstream* fs)
+    {
+        std::string temp;
+        std::string buffer;
+        while (std::getline(*fs, temp))
+        {
+            buffer += temp;
+        }
+        return buffer;
+    }
 }

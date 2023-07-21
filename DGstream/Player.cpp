@@ -165,8 +165,8 @@ void Player::showHud(bool show)
 				icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
 				back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
 				animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-				fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-				background->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
+				fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				background->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
 			}
 			//std::cout << "HUD\n";
 		}
@@ -188,8 +188,8 @@ void Player::showHud(bool show)
 				icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
 				back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
 				animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-				fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-				background->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
+				fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				background->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
 			}
 		}
 	}
@@ -499,14 +499,15 @@ void Player::handleEvents()
 		case MPV_EVENT_LOG_MESSAGE:
 			mpv_event_log_message* msg = (mpv_event_log_message*)event->data;
 			std::fstream fs;
-			fs.open("config/logs.txt",std::ios_base::app);
+			std::cout << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " <<msg->text << '\n';
+			
+			/*fs.open("config/logs.txt", std::ios_base::app);
 			if (fs.is_open())
 			{
-				std::cout << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " <<msg->text << '\n';
 				fs << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " << msg->text;
 
 			}
-			fs.close();
+			fs.close();*/
 			break;
 
 		}
@@ -601,8 +602,6 @@ void Player::onPreviousButtonPressed(std::function<void(void)> func)
 {
 	backward->onClick(func);
 }
-
-
 
 void Player::onSubButtonPressed(std::function<void(void)> func)
 {

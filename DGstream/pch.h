@@ -11,6 +11,7 @@
 #include <memory>
 #include <functional>
 #include <map>
+#include <future>
 
 #include <teemo/teemo.h>
 #include <cpr/cpr.h>
