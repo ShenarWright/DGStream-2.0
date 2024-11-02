@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
 
 #include <iostream>
 #include <fstream>
@@ -12,8 +13,9 @@
 #include <functional>
 #include <map>
 #include <future>
+#include <sstream>
 
-#include <teemo/teemo.h>
+#include <zoe/zoe.h>
 #include <cpr/cpr.h>
 
 #include <json/json.h>

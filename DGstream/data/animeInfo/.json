@@ -1,0 +1,169 @@
+{
+   "currentPage" : 1,
+   "hasNextPage" : true,
+   "id" : null,
+   "results" : [
+      {
+         "id" : "one-piece",
+         "image" : "https://gogocdn.net/cover/one-piece-1708412053.png",
+         "releaseDate" : "Released: 1999",
+         "subOrDub" : "sub",
+         "title" : "One Piece",
+         "url" : "https://gogoanime3.co//category/one-piece"
+      },
+      {
+         "id" : "toriko-dub",
+         "image" : "https://gogocdn.net/cover/toriko-dub.png",
+         "releaseDate" : "Released: 2011",
+         "subOrDub" : "dub",
+         "title" : "Toriko (Dub)",
+         "url" : "https://gogoanime3.co//category/toriko-dub"
+      },
+      {
+         "id" : "one-piece-3d2y",
+         "image" : "https://gogocdn.net/images/summer/64755.jpg",
+         "releaseDate" : "Released: 2014",
+         "subOrDub" : "sub",
+         "title" : "One Piece 3D2Y",
+         "url" : "https://gogoanime3.co//category/one-piece-3d2y"
+      },
+      {
+         "id" : "one-piece-dub",
+         "image" : "https://gogocdn.net/cover/one-piece-dub.png",
+         "releaseDate" : "Released: 1999",
+         "subOrDub" : "dub",
+         "title" : "One Piece (Dub)",
+         "url" : "https://gogoanime3.co//category/one-piece-dub"
+      },
+      {
+         "id" : "one-piece-film-z",
+         "image" : "https://gogocdn.net/images/anime/O/One-Piece-Film-Z.jpg",
+         "releaseDate" : "Released: 2012",
+         "subOrDub" : "sub",
+         "title" : "One Piece Film Z",
+         "url" : "https://gogoanime3.co//category/one-piece-film-z"
+      },
+      {
+         "id" : "one-piece-special",
+         "image" : "https://gogocdn.net/images/anime/O/One-Piece-Special.jpg",
+         "releaseDate" : "Released: 2000",
+         "subOrDub" : "sub",
+         "title" : "One Piece Special",
+         "url" : "https://gogoanime3.co//category/one-piece-special"
+      },
+      {
+         "id" : "one-piece-nami-ova",
+         "image" : "https://gogocdn.net/images/22.jpg",
+         "releaseDate" : "Released: 2012",
+         "subOrDub" : "sub",
+         "title" : "One Piece: Nami OVA",
+         "url" : "https://gogoanime3.co//category/one-piece-nami-ova"
+      },
+      {
+         "id" : "one-piece-film-red",
+         "image" : "https://gogocdn.net/cover/one-piece-film-red.png",
+         "releaseDate" : "Released: 2022",
+         "subOrDub" : "sub",
+         "title" : "One Piece Film: Red",
+         "url" : "https://gogoanime3.co//category/one-piece-film-red"
+      },
+      {
+         "id" : "one-piece-3d2y-dub",
+         "image" : "https://gogocdn.net/cover/one-piece-3d2y-dub.png",
+         "releaseDate" : "Released: 2014",
+         "subOrDub" : "dub",
+         "title" : "One Piece 3D2Y (Dub)",
+         "url" : "https://gogoanime3.co//category/one-piece-3d2y-dub"
+      },
+      {
+         "id" : "one-piece-film-gold",
+         "image" : "https://gogocdn.net/cover/one-piece-film-gold.png",
+         "releaseDate" : "Released: 2016",
+         "subOrDub" : "sub",
+         "title" : "One Piece Film: Gold",
+         "url" : "https://gogoanime3.co//category/one-piece-film-gold"
+      },
+      {
+         "id" : "one-piece-film-z-dub",
+         "image" : "https://gogocdn.net/cover/one-piece-film-z-dub.png",
+         "releaseDate" : "Released: 2012",
+         "subOrDub" : "dub",
+         "title" : "One Piece Film: Z (Dub)",
+         "url" : "https://gogoanime3.co//category/one-piece-film-z-dub"
+      },
+      {
+         "id" : "one-piece-heart-of-gold",
+         "image" : "https://gogocdn.net/cover/one-piece-heart-of-gold.jpg",
+         "releaseDate" : "Released: 2016",
+         "subOrDub" : "sub",
+         "title" : "One Piece: Heart of Gold",
+         "url" : "https://gogoanime3.co//category/one-piece-heart-of-gold"
+      },
+      {
+         "id" : "one-piece-film-red-dub",
+         "image" : "https://gogocdn.net/cover/one-piece-film-red-dub.png",
+         "releaseDate" : "Released: 2022",
+         "subOrDub" : "dub",
+         "title" : "One Piece Film: Red (Dub)",
+         "url" : "https://gogoanime3.co//category/one-piece-film-red-dub"
+      },
+      {
+         "id" : "hungry-days-aoharu-ka-yo",
+         "image" : "https://gogocdn.net/cover/hungry-days-aoharu-ka-yo.png",
+         "releaseDate" : "Released: 2020",
+         "subOrDub" : "sub",
+         "title" : "Hungry Days: Aoharu ka yo.",
+         "url" : "https://gogoanime3.co//category/hungry-days-aoharu-ka-yo"
+      },
+      {
+         "id" : "one-piece-film-gold-dub",
+         "image" : "https://gogocdn.net/cover/one-piece-film-gold-dub.png",
+         "releaseDate" : "Released: 2016",
+         "subOrDub" : "dub",
+         "title" : "One Piece Film: Gold (Dub)",
+         "url" : "https://gogoanime3.co//category/one-piece-film-gold-dub"
+      },
+      {
+         "id" : "one-piece-movie-14-stampede",
+         "image" : "https://gogocdn.net/cover/one-piece-movie-14-stampede.png",
+         "releaseDate" : "Released: 2019",
+         "subOrDub" : "sub",
+         "title" : "One Piece Movie 14: Stampede",
+         "url" : "https://gogoanime3.co//category/one-piece-movie-14-stampede"
+      },
+      {
+         "id" : "one-piece-straw-hat-theater",
+         "image" : "https://gogocdn.net/cover/one-piece-straw-hat-theater.png",
+         "releaseDate" : "Released: 2006",
+         "subOrDub" : "sub",
+         "title" : "One Piece: Straw Hat Theater",
+         "url" : "https://gogoanime3.co//category/one-piece-straw-hat-theater"
+      },
+      {
+         "id" : "one-piece-3d-mugiwara-chase",
+         "image" : "https://gogocdn.net/images/anime/O/One-Piece-3D.jpg",
+         "releaseDate" : "Released: 2011",
+         "subOrDub" : "sub",
+         "title" : "One Piece 3D: Mugiwara Chase",
+         "url" : "https://gogoanime3.co//category/one-piece-3d-mugiwara-chase"
+      },
+      {
+         "id" : "one-piece-episode-of-sorajima",
+         "image" : "https://gogocdn.net/cover/one-piece-episode-of-sorajima.png",
+         "releaseDate" : "Released: 2018",
+         "subOrDub" : "sub",
+         "title" : "One Piece: Episode of Sorajima",
+         "url" : "https://gogoanime3.co//category/one-piece-episode-of-sorajima"
+      },
+      {
+         "id" : "one-piece-episode-of-east-blue",
+         "image" : "https://gogocdn.net/cover/one-piece-episode-of-east-blue.png",
+         "releaseDate" : "Released: 2017",
+         "subOrDub" : "sub",
+         "title" : "One Piece: Episode of East Blue",
+         "url" : "https://gogoanime3.co//category/one-piece-episode-of-east-blue"
+      }
+   ],
+   "totalEpisodes" : null,
+   "watched" : 0
+}

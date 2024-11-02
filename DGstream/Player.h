@@ -1,12 +1,20 @@
 #pragma once
+/*
 #include <SFML/Graphics.hpp>
-#include <mpv/client.h>
-#include <mpv/render_gl.h>
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
 #include <fstream>
+*/
+
+#include "pch.h"
+#include <mpv/client.h>
+#include <mpv/render_gl.h>
+
+#include <GL/glew.h>
+
 
 struct M
 {
@@ -48,6 +56,8 @@ private:
 	long double pos;
 	long double duration;
 
+	unsigned int framebufferobject = 0;
+
 	tgui::ProgressBar::Ptr progress;
 	tgui::Slider::Ptr slider;
 	tgui::Label::Ptr startlabel;
@@ -72,7 +82,6 @@ private:
 	sf::Clock hiddentimer;
 
 	void initgui();
-	void updateSize();
 	void updatePosition();
 	void updatelabel();
 public:
@@ -80,6 +89,7 @@ public:
 	Player();
 	~Player();
 
+	void updateSize(int width, int height);
 	void showHud(bool show);
 	bool isHudshown();
 	void render();

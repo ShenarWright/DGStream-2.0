@@ -69,24 +69,29 @@ namespace Net
 				Furl = src;
 			}
 
-			//std::cout << "res/img/" + val["results"][i]["id"].asString() + ".png" << '\n';
-			downloaders.push_back(std::make_shared<teemo::Teemo>());
-			downloaders.back()->start(Furl, "res/img/" + val["results"][i]["id"].asString() + ".png",
-				[&](teemo::Result res)
-				{
-					if (res == teemo::Result::SUCCESSED)
+			std::string path = "res/img/" + val["results"][i]["id"].asString() + ".png";
+			if (!tgui::Filesystem::fileExists(path))
+			{
+				downloaders.push_back(std::make_shared<zoe::Zoe>());
+				downloaders.back()->start(Furl, "res/img/" + val["results"][i]["id"].asString() + ".png",
+					[&](zoe::Result res)
 					{
-						//TODO: Make sure that you check to see if the path exists b4 addin
-						//to the vector
-						std::cout << "success\n";
-					}
-					else
-						std::cout << teemo::GetResultString(res) << '\n';
-				}, [&](int64_t total, int64_t downloaded)
-				{
-				}, [&](int64_t byte_per_secs)
-				{
-				});
+						if (res == zoe::Result::SUCCESSED)
+						{
+							//TODO: Make sure that you check to see if the path exists b4 addin
+							//to the vector
+							std::cout << "success\n";
+						}
+						else
+							std::cout << zoe::GetResultString(res) << '\n';
+					}, [&](int64_t total, int64_t downloaded)
+					{
+					}, [&](int64_t byte_per_secs)
+					{
+					});
+			}
+
+			//std::cout << "res/img/" + val["results"][i]["id"].asString() + ".png" << '\n';
 		}
 		for (auto& e : downloaders)
 		{

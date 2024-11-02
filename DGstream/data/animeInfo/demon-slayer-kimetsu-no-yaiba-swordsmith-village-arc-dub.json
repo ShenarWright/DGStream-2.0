@@ -56,6 +56,13 @@
          "number" : 8,
          "url" : "https://gogoanime.cl//demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub-episode-8",
          "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub-episode-9",
+         "number" : 9,
+         "url" : "https://gogoanime.cl//demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub-episode-9",
+         "watched" : false
       }
    ],
    "genres" : [ "Action", "Dub", "Fantasy", "Historical" ],
@@ -66,7 +73,7 @@
    "status" : "Ongoing",
    "subOrDub" : "dub",
    "title" : "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc (Dub)",
-   "totalEpisodes" : 8,
+   "totalEpisodes" : 9,
    "type" : "SPRING 2023 ANIME",
    "url" : "/category/demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub",
    "watched" : 0

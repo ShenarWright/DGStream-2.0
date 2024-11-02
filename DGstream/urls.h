@@ -1,13 +1,13 @@
 #pragma once
 
-#define local
+//#define local
 
 #ifdef local
 	#define consumet "https://c.delusionz.xyz"
 	#define gogourl "https://c.delusionz.xyz/anime/gogoanime"
 #else
-	#define consumet "https://api.consumet.org"
-	#define gogourl "https://api.consumet.org/anime/gogoanime"
+	#define consumet "http://192.168.137.187:3000"
+	#define gogourl "http://192.168.137.187:3000/anime/gogoanime"
 #endif
 #define gogo "/anime/gogoanime"
 #define topairing "/top-airing"

@@ -2,7 +2,7 @@
 
 void* Player::get_proc_address_mpv(void* unused, const char* name)
 {
-	std::cout << name << '\n';
+	//std::cout << name << '\n';
 	//std::cout << (sf::Context::isExtensionAvailable(name)  ? "True" : "False") << '\n';
 	(void)unused;
 	return ((void*)sf::Context::getFunction(name));
@@ -58,9 +58,10 @@ void Player::initgui()
 		});*/
 }
 
-void Player::updateSize()
+void Player::updateSize(int width, int height)
 {
-
+	this->width = width;
+	this->height = height;
 }
 
 void Player::updatePosition()
@@ -151,22 +152,22 @@ void Player::showHud(bool show)
 		{
 			if (!progress->isVisible())
 			{
-				progress->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				tbtn->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				forward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				backward->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				startlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				endlabel->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				download->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				volume->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				settings->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				sub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				dub->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				icons->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				back->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-				animetitle->showWithEffect(tgui::ShowAnimationType::SlideFromTop, 45);
-				fullscreen->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
-				background->showWithEffect(tgui::ShowAnimationType::SlideFromBottom, 45);
+				progress->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				tbtn->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				forward->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				backward->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				startlabel->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				endlabel->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				download->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				volume->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				settings->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				sub->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				dub->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				icons->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				back->showWithEffect(tgui::ShowEffectType::SlideFromTop, 45);
+				animetitle->showWithEffect(tgui::ShowEffectType::SlideFromTop, 45);
+				fullscreen->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
+				background->showWithEffect(tgui::ShowEffectType::SlideFromBottom, 45);
 			}
 			//std::cout << "HUD\n";
 		}
@@ -174,22 +175,22 @@ void Player::showHud(bool show)
 		{
 			if (progress->isVisible())
 			{
-				progress->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				tbtn->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				forward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				backward->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				startlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				endlabel->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				download->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				volume->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				settings->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				sub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				dub->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				icons->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				back->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-				animetitle->hideWithEffect(tgui::ShowAnimationType::SlideToTop, 100);
-				fullscreen->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
-				background->hideWithEffect(tgui::ShowAnimationType::SlideToBottom, 100);
+				progress->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				tbtn->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				forward->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				backward->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				startlabel->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				endlabel->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				download->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				volume->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				settings->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				sub->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				dub->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				icons->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				back->hideWithEffect(tgui::ShowEffectType::SlideToTop, 100);
+				animetitle->hideWithEffect(tgui::ShowEffectType::SlideToTop, 100);
+				fullscreen->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
+				background->hideWithEffect(tgui::ShowEffectType::SlideToBottom, 100);
 			}
 		}
 	}
@@ -205,6 +206,10 @@ Player::Player(std::string str)
 //mpv(NULL),width(800),height(640)
 {
 	initgui();
+
+	glGenFramebuffers(1, &framebufferobject);
+	fbo.fbo = framebufferobject;
+
 	paused = false;
 	mpv = mpv_create();
 	if (mpv_initialize(mpv) < 0)
@@ -305,8 +310,7 @@ void Player::render()
 		void* data = NULL;
 		mpv_render_context_set_update_callback(context, [](void* data) {}, data);
 		//int arr[2] = { width,height };
-
-			mpv_opengl_fbo fbo = { 0,width,height,0 };
+		mpv_opengl_fbo fbo = { framebufferobject,width,height,0 };
 		//fbo.fbo = 0;
 		//fbo.w = 800;
 		//fbo.h = 640;
@@ -315,7 +319,6 @@ void Player::render()
 		rparams[0] = { MPV_RENDER_PARAM_OPENGL_FBO, &fbo };
 		rparams[1] = { MPV_RENDER_PARAM_FLIP_Y, &one };
 		//rparams[2] = {MPV_RENDER_PARAM_OPENGL_FBO,}
-
 
 
 		//if (!context)
@@ -345,10 +348,7 @@ void Player::load(std::string str)
 
 void Player::setSize(int x, int y)
 {
-	width = x;
-	height = y;
-
-	updateSize();
+	updateSize(x,y);
 	updatePosition();
 }
 
@@ -499,7 +499,7 @@ void Player::handleEvents()
 		case MPV_EVENT_LOG_MESSAGE:
 			mpv_event_log_message* msg = (mpv_event_log_message*)event->data;
 			std::fstream fs;
-			std::cout << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " <<msg->text << '\n';
+			//std::cout << "Prefix:" << msg->prefix << " /LEVEL/ " << msg->level << " /MESSAGE/ " <<msg->text << '\n';
 			
 			/*fs.open("config/logs.txt", std::ios_base::app);
 			if (fs.is_open())

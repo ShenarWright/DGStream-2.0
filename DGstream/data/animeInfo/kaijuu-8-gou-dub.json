@@ -1,0 +1,24 @@
+{
+   "description" : "",
+   "episodes" : [
+      {
+         "downloaded" : false,
+         "id" : "kaijuu-8-gou-dub-episode-1",
+         "number" : 1,
+         "url" : "https://gogoanime3.co//kaijuu-8-gou-dub-episode-1",
+         "watched" : false
+      }
+   ],
+   "genres" : [ "Action", "Sci-Fi" ],
+   "id" : "kaijuu-8-gou-dub",
+   "image" : "https://gogocdn.net/cover/kaijuu-8-gou-dub.png",
+   "otherName" : "\n                          Kaiju No. 8, \u602a\u73638\u53f7\n                      ",
+   "releaseDate" : "2024",
+   "status" : "Ongoing",
+   "subOrDub" : "dub",
+   "title" : "Kaijuu 8-gou (Dub)",
+   "totalEpisodes" : 1,
+   "type" : "TV SERIES",
+   "url" : "https://gogoanime3.co/category/kaijuu-8-gou-dub",
+   "watched" : 0
+}

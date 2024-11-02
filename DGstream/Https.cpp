@@ -26,15 +26,33 @@ namespace Net
         auto res = cpr::Get(cpr::Url(url));
         if (res.error.code != cpr::ErrorCode::OK)
         {
-            std::cout << "Failed\n";
+            //std::cout << "Failed\n";
             std::cout << res.error.message << '\n';
             return;
         }
         Json::Value jv;
         Json::Reader r;
         r.parse(res.text,jv);
-        std::cout << jv << '\n';
+       // std::cout << jv << '\n';
         cb(jv);
+    }
+
+    Json::Value Https::sendrequestjson(std::string url)
+    {
+        //std::cout << url << '\n';
+        auto res = cpr::Get(cpr::Url(url));
+        if (res.error.code != cpr::ErrorCode::OK)
+        {
+            std::cout << "Failed\n";
+            std::cout << res.error.message << '\n';
+            return Json::Value();
+        }
+        Json::Value jv;
+        Json::Reader r;
+        r.parse(res.text, jv);
+        //std::cout << jv << '\n';
+        //std::cout << "JSON BACK\n";
+        return jv;
     }
 
     /*size_t Https::cb(void* data, size_t size, size_t nmemb, void* userp)

@@ -1,25 +1,28 @@
 {
-   "NumAnime" : 5,
+   "NumAnime" : 1,
    "Sources" : [
       {
-         "id" : "jigokuraku-dub",
-         "name" : "Jigokuraku (Dub)"
-      },
-      {
-         "id" : "demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-dub",
-         "name" : "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc (Dub)"
-      },
-      {
-         "id" : "kage-no-jitsuryokusha-ni-naritakute-dub",
-         "name" : "Kage no Jitsuryokusha ni Naritakute! (Dub)"
-      },
-      {
-         "id" : "isekai-de-cheat-skill-wo-te-ni-shita-ore-wa-genjitsu-sekai-wo-mo-musou-suru-level-up-wa-jinsei-wo-kaeta-dub",
-         "name" : "Isekai de Cheat Skill wo Te ni Shita Ore wa, Genjitsu Sekai wo mo Musou Suru: Level Up wa Jinsei wo Kaeta (Dub)"
-      },
-      {
-         "id" : "bleach-dub",
-         "name" : "Bleach (Dub)"
+         "id" : "kaijuu-8-gou-dub",
+         "name" : "Kaijuu 8-gou (Dub)"
       }
-   ]
+   ],
+   "description" : "",
+   "episodes" : [
+      {
+         "id" : "kaijuu-8-gou-dub-episode-1",
+         "number" : 1,
+         "url" : "https://gogoanime3.co//kaijuu-8-gou-dub-episode-1"
+      }
+   ],
+   "genres" : [ "Action", "Sci-Fi" ],
+   "id" : "kaijuu-8-gou-dub",
+   "image" : "https://gogocdn.net/cover/kaijuu-8-gou-dub.png",
+   "otherName" : "\n                          Kaiju No. 8, \u602a\u73638\u53f7\n                      ",
+   "releaseDate" : "2024",
+   "status" : "Ongoing",
+   "subOrDub" : "dub",
+   "title" : "Kaijuu 8-gou (Dub)",
+   "totalEpisodes" : 1,
+   "type" : "TV SERIES",
+   "url" : "https://gogoanime3.co/category/kaijuu-8-gou-dub"
 }

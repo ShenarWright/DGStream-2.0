@@ -1,0 +1,31 @@
+{
+   "description" : "",
+   "episodes" : [
+      {
+         "downloaded" : false,
+         "id" : "mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub-episode-1",
+         "number" : 1,
+         "url" : "https://gogoanime3.co//mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub-episode-1",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub-episode-2",
+         "number" : 2,
+         "url" : "https://gogoanime3.co//mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub-episode-2",
+         "watched" : false
+      }
+   ],
+   "genres" : [ "Action", "Comedy", "Fantasy" ],
+   "id" : "mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub",
+   "image" : "https://gogocdn.net/cover/mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub.png",
+   "otherName" : "\n                          Mashle: Magic and Muscles - The Divine Visionary Candidate Exam Arc, \u30de\u30c3\u30b7\u30e5\u30eb-MASHLE- \u795e\u899a\u8005\u5019\u88dc\u9078\u629c\u8a66\u9a13\u7de8\n                      ",
+   "releaseDate" : "2024",
+   "status" : "Ongoing",
+   "subOrDub" : "dub",
+   "title" : "Mashle: Shinkakusha Kouho Senbatsu Shiken-hen (Dub)",
+   "totalEpisodes" : 2,
+   "type" : "TV SERIES",
+   "url" : "https://gogoanime3.co/category/mashle-shinkakusha-kouho-senbatsu-shiken-hen-dub",
+   "watched" : 0
+}

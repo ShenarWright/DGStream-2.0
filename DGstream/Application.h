@@ -4,6 +4,7 @@
 #include "Https.h"
 #include "urls.h"
 #include "Player.h"
+#include "ApiScheema.h"
 
 #define APD ApiResourceDownloader
 
@@ -20,13 +21,17 @@ private:
 	tgui::Group::Ptr searchpanel;
 	tgui::Group::Ptr animeInfo;
 
+	sf::Clock pausecooldown;
+	sf::Clock skipcooldown;
+
 	std::thread downloadthread;
-	std::vector<std::shared_ptr<sf::Texture>> textures;
+	//std::vector<std::shared_ptr<sf::Texture>> textures;
 	std::map<std::string, Json::Value> jsons;
 	std::mutex mutex;
 	std::shared_ptr<Player> player;
 
-	Json::Value value;
+	int currentepisode;
+	//Json::Value value;
 
 	Net::Downloader downloader;
 

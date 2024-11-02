@@ -2,46 +2,100 @@
    "description" : "In this magical world, one is easily identified as having magical abilities by a distinctive mark on their face. Those unable to practice magic are swiftly exterminated to maintain the magical integrity of society. However, deep within a forest lies an anomaly in Mash Burnedead, who can be found pumping iron with one arm and lifting a cream puff with the other. This aloof boy with superhuman strength\u2014but no magical abilities\u2014leads a quiet life with his father, far removed from society.\n\nMash's peace is soon disturbed when the authorities discover his lack of magical powers. They issue him an ultimatum: compete to become a \"Divine Visionary,\" which would force everyone to accept him, or be persecuted forever. To protect his family, he enrolls in the prestigious Easton Magic Academy, which only the most elite and gifted students are allowed to attend. Now, Mash must overcome his shortcomings as a magicless being and surpass the other students\u2014relying solely on his muscles.",
    "episodes" : [
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-1",
          "number" : 1,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-1"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-1",
+         "watched" : false
       },
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-2",
          "number" : 2,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-2"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-2",
+         "watched" : false
       },
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-3",
          "number" : 3,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-3"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-3",
+         "watched" : false
       },
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-4",
          "number" : 4,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-4"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-4",
+         "watched" : false
       },
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-5",
          "number" : 5,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-5"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-5",
+         "watched" : false
       },
       {
+         "downloaded" : false,
          "id" : "mashle-dub-episode-6",
          "number" : 6,
-         "url" : "https://gogoanime.cl//mashle-dub-episode-6"
+         "url" : "https://gogoanime3.co//mashle-dub-episode-6",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-7",
+         "number" : 7,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-7",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-8",
+         "number" : 8,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-8",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-9",
+         "number" : 9,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-9",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-10",
+         "number" : 10,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-10",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-11",
+         "number" : 11,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-11",
+         "watched" : false
+      },
+      {
+         "downloaded" : false,
+         "id" : "mashle-dub-episode-12",
+         "number" : 12,
+         "url" : "https://gogoanime3.co//mashle-dub-episode-12",
+         "watched" : false
       }
    ],
-   "genres" : [ "Action", "Comedy", "Fantasy" ],
+   "genres" : [ "Action", "Comedy", "Dub", "Fantasy" ],
    "id" : "mashle-dub",
    "image" : "https://gogocdn.net/cover/mashle-dub.png",
-   "otherName" : "Mashle: Magic and Muscles, \u30de\u30c3\u30b7\u30e5\u30eb-MASHLE-",
+   "otherName" : "\n                          \u30de\u30c3\u30b7\u30e5\u30eb-MASHLE- \n                           \u808c\u8089\u9b54\u6cd5\u4f7f -MASHLE- \n                           Mashle: Magic and Muscles\n                      ",
    "releaseDate" : "2023",
-   "status" : "Ongoing",
+   "status" : "Completed",
    "subOrDub" : "dub",
    "title" : "Mashle (Dub)",
-   "totalEpisodes" : 6,
+   "totalEpisodes" : 12,
    "type" : "SPRING 2023 ANIME",
-   "url" : "/category/mashle-dub",
-   "watched" : 5
+   "url" : "https://gogoanime3.co/category/mashle-dub",
+   "watched" : 0
 }

@@ -9,7 +9,7 @@ namespace Net
 	{
 		std::string url;
 		std::string targetpath;
-		std::function<void(teemo::Result res)>					 result_callback;
+		std::function<void(zoe::Result res)>					 result_callback;
 		std::function<void(int64_t total, int64_t downloaded)>	 progress_callback;
 		std::function<void(int64_t byte_per_secs)>				 speed_callback;
 	};
@@ -36,10 +36,16 @@ namespace Net
 	downloadQueue createQueue(
 		std::string url,
 		std::string targetpath,
-		std::function<void(teemo::Result res)>					 result_callback,
+		std::function<void(zoe::Result res)>					 result_callback,
 		std::function<void(int64_t total, int64_t downloaded)>	 progress_callback,
 		std::function<void(int64_t byte_per_secs)>				 speed_callback
 	);
+
+	struct events
+	{
+		Json::Value input;
+		std::function<void(Json::Value)> callback;
+	};
 
 	//downloader class 
 	class Downloader
@@ -53,6 +59,8 @@ namespace Net
 		bool addard(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {});
 		bool addRequest(std::string url, std::function<void(Json::Value)>func = [](Json::Value) {}, bool startrequest = true);
 		bool addRequests(std::vector <requestCb>requests,bool startrequest = true);
+		bool pollEvents();
+
 	private:
 		bool download();
 		bool downloadres();
@@ -60,7 +68,8 @@ namespace Net
 		std::mutex m_mutex;
 		std::vector<downloadQueue>m_queue;
 		std::vector<requestCb> requests;
-		std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
+		std::vector<std::shared_ptr<zoe::Zoe>> downloaders;
+		std::vector<events> ev;
 		ARD ard;
 		ARD tempard;
 		bool shouldrunArd;

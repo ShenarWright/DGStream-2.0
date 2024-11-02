@@ -18,7 +18,7 @@ namespace Net
 		std::string url;
 		std::function<void(Json::Value)>callback;
 
-		std::vector<std::shared_ptr<teemo::Teemo>> downloaders;
+		std::vector<std::shared_ptr<zoe::Zoe>> downloaders;
 	};
 }
 

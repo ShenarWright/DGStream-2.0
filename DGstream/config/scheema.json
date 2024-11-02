@@ -1,0 +1,8 @@
+{
+    "base" : "http://192.168.0.126:3000/anime/gogoanime/",
+    "info" : "info/",
+    "search" : "",
+    "topairing" : "top-airing",
+    "recentepisodes" : "recent-episodes?type=2",
+    "streaminglinks" : "watch/"
+}
